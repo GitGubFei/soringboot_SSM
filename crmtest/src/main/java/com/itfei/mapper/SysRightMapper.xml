@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.SysRightMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.SysRight">
+    <id column="right_code" jdbcType="VARCHAR" property="rightCode" />
+    <result column="right_parent_code" jdbcType="VARCHAR" property="rightParentCode" />
+    <result column="right_type" jdbcType="VARCHAR" property="rightType" />
+    <result column="right_text" jdbcType="VARCHAR" property="rightText" />
+    <result column="right_url" jdbcType="VARCHAR" property="rightUrl" />
+    <result column="right_tip" jdbcType="VARCHAR" property="rightTip" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    right_code, right_parent_code, right_type, right_text, right_url, right_tip
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sys_right
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tbl_sys_right
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SysRight">
+    insert into tbl_sys_right (right_code, right_parent_code, right_type, 
+      right_text, right_url, right_tip
+      )
+    values (#{rightCode,jdbcType=VARCHAR}, #{rightParentCode,jdbcType=VARCHAR}, #{rightType,jdbcType=VARCHAR}, 
+      #{rightText,jdbcType=VARCHAR}, #{rightUrl,jdbcType=VARCHAR}, #{rightTip,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SysRight">
+    insert into tbl_sys_right
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rightCode != null">
+        right_code,
+      </if>
+      <if test="rightParentCode != null">
+        right_parent_code,
+      </if>
+      <if test="rightType != null">
+        right_type,
+      </if>
+      <if test="rightText != null">
+        right_text,
+      </if>
+      <if test="rightUrl != null">
+        right_url,
+      </if>
+      <if test="rightTip != null">
+        right_tip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rightCode != null">
+        #{rightCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rightParentCode != null">
+        #{rightParentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rightType != null">
+        #{rightType,jdbcType=VARCHAR},
+      </if>
+      <if test="rightText != null">
+        #{rightText,jdbcType=VARCHAR},
+      </if>
+      <if test="rightUrl != null">
+        #{rightUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rightTip != null">
+        #{rightTip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SysRight">
+    update tbl_sys_right
+    <set>
+      <if test="rightParentCode != null">
+        right_parent_code = #{rightParentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rightType != null">
+        right_type = #{rightType,jdbcType=VARCHAR},
+      </if>
+      <if test="rightText != null">
+        right_text = #{rightText,jdbcType=VARCHAR},
+      </if>
+      <if test="rightUrl != null">
+        right_url = #{rightUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rightTip != null">
+        right_tip = #{rightTip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SysRight">
+    update tbl_sys_right
+    set right_parent_code = #{rightParentCode,jdbcType=VARCHAR},
+      right_type = #{rightType,jdbcType=VARCHAR},
+      right_text = #{rightText,jdbcType=VARCHAR},
+      right_url = #{rightUrl,jdbcType=VARCHAR},
+      right_tip = #{rightTip,jdbcType=VARCHAR}
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.SysRight">
+    <id column="right_code" jdbcType="VARCHAR" property="rightCode" />
+    <result column="right_parent_code" jdbcType="VARCHAR" property="rightParentCode" />
+    <result column="right_type" jdbcType="VARCHAR" property="rightType" />
+    <result column="right_text" jdbcType="VARCHAR" property="rightText" />
+    <result column="right_url" jdbcType="VARCHAR" property="rightUrl" />
+    <result column="right_tip" jdbcType="VARCHAR" property="rightTip" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    right_code, right_parent_code, right_type, right_text, right_url, right_tip
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sys_right
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tbl_sys_right
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SysRight">
+    insert into tbl_sys_right (right_code, right_parent_code, right_type, 
+      right_text, right_url, right_tip
+      )
+    values (#{rightCode,jdbcType=VARCHAR}, #{rightParentCode,jdbcType=VARCHAR}, #{rightType,jdbcType=VARCHAR}, 
+      #{rightText,jdbcType=VARCHAR}, #{rightUrl,jdbcType=VARCHAR}, #{rightTip,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SysRight">
+    insert into tbl_sys_right
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rightCode != null">
+        right_code,
+      </if>
+      <if test="rightParentCode != null">
+        right_parent_code,
+      </if>
+      <if test="rightType != null">
+        right_type,
+      </if>
+      <if test="rightText != null">
+        right_text,
+      </if>
+      <if test="rightUrl != null">
+        right_url,
+      </if>
+      <if test="rightTip != null">
+        right_tip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rightCode != null">
+        #{rightCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rightParentCode != null">
+        #{rightParentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rightType != null">
+        #{rightType,jdbcType=VARCHAR},
+      </if>
+      <if test="rightText != null">
+        #{rightText,jdbcType=VARCHAR},
+      </if>
+      <if test="rightUrl != null">
+        #{rightUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rightTip != null">
+        #{rightTip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SysRight">
+    update tbl_sys_right
+    <set>
+      <if test="rightParentCode != null">
+        right_parent_code = #{rightParentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rightType != null">
+        right_type = #{rightType,jdbcType=VARCHAR},
+      </if>
+      <if test="rightText != null">
+        right_text = #{rightText,jdbcType=VARCHAR},
+      </if>
+      <if test="rightUrl != null">
+        right_url = #{rightUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rightTip != null">
+        right_tip = #{rightTip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SysRight">
+    update tbl_sys_right
+    set right_parent_code = #{rightParentCode,jdbcType=VARCHAR},
+      right_type = #{rightType,jdbcType=VARCHAR},
+      right_text = #{rightText,jdbcType=VARCHAR},
+      right_url = #{rightUrl,jdbcType=VARCHAR},
+      right_tip = #{rightTip,jdbcType=VARCHAR}
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.SysRight">
+    <id column="right_code" jdbcType="VARCHAR" property="rightCode" />
+    <result column="right_parent_code" jdbcType="VARCHAR" property="rightParentCode" />
+    <result column="right_type" jdbcType="VARCHAR" property="rightType" />
+    <result column="right_text" jdbcType="VARCHAR" property="rightText" />
+    <result column="right_url" jdbcType="VARCHAR" property="rightUrl" />
+    <result column="right_tip" jdbcType="VARCHAR" property="rightTip" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    right_code, right_parent_code, right_type, right_text, right_url, right_tip
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sys_right
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from tbl_sys_right
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SysRight">
+    insert into tbl_sys_right (right_code, right_parent_code, right_type, 
+      right_text, right_url, right_tip
+      )
+    values (#{rightCode,jdbcType=VARCHAR}, #{rightParentCode,jdbcType=VARCHAR}, #{rightType,jdbcType=VARCHAR}, 
+      #{rightText,jdbcType=VARCHAR}, #{rightUrl,jdbcType=VARCHAR}, #{rightTip,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SysRight">
+    insert into tbl_sys_right
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rightCode != null">
+        right_code,
+      </if>
+      <if test="rightParentCode != null">
+        right_parent_code,
+      </if>
+      <if test="rightType != null">
+        right_type,
+      </if>
+      <if test="rightText != null">
+        right_text,
+      </if>
+      <if test="rightUrl != null">
+        right_url,
+      </if>
+      <if test="rightTip != null">
+        right_tip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rightCode != null">
+        #{rightCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rightParentCode != null">
+        #{rightParentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rightType != null">
+        #{rightType,jdbcType=VARCHAR},
+      </if>
+      <if test="rightText != null">
+        #{rightText,jdbcType=VARCHAR},
+      </if>
+      <if test="rightUrl != null">
+        #{rightUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rightTip != null">
+        #{rightTip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SysRight">
+    update tbl_sys_right
+    <set>
+      <if test="rightParentCode != null">
+        right_parent_code = #{rightParentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rightType != null">
+        right_type = #{rightType,jdbcType=VARCHAR},
+      </if>
+      <if test="rightText != null">
+        right_text = #{rightText,jdbcType=VARCHAR},
+      </if>
+      <if test="rightUrl != null">
+        right_url = #{rightUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="rightTip != null">
+        right_tip = #{rightTip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SysRight">
+    update tbl_sys_right
+    set right_parent_code = #{rightParentCode,jdbcType=VARCHAR},
+      right_type = #{rightType,jdbcType=VARCHAR},
+      right_text = #{rightText,jdbcType=VARCHAR},
+      right_url = #{rightUrl,jdbcType=VARCHAR},
+      right_tip = #{rightTip,jdbcType=VARCHAR}
+    where right_code = #{rightCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

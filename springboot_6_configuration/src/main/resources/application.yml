@@ -1,0 +1,6 @@
+servers:
+  ipAddress: 192.168.0.1
+  port: 2345
+  timeout: -1
+datasource:
+  driverClassName: aaa

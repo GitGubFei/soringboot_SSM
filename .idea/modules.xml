@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/crmtest/crmtest.iml" filepath="$PROJECT_DIR$/crmtest/crmtest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soringboot_11_redis/soringboot_11_redis.iml" filepath="$PROJECT_DIR$/soringboot_11_redis/soringboot_11_redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_boot_01/spring_boot_01.iml" filepath="$PROJECT_DIR$/spring_boot_01/spring_boot_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_boot_02/spring_boot_02.iml" filepath="$PROJECT_DIR$/spring_boot_02/spring_boot_02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_boot_03_mybatis/spring_boot_03_mybatis.iml" filepath="$PROJECT_DIR$/spring_boot_03_mybatis/spring_boot_03_mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_05_mybatis_plus/springboot_05_mybatis_plus.iml" filepath="$PROJECT_DIR$/springboot_05_mybatis_plus/springboot_05_mybatis_plus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_07_test/springboot_07_test.iml" filepath="$PROJECT_DIR$/springboot_07_test/springboot_07_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_08_ssmp/springboot_08_ssmp.iml" filepath="$PROJECT_DIR$/springboot_08_ssmp/springboot_08_ssmp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_09_sql/springboot_09_sql.iml" filepath="$PROJECT_DIR$/springboot_09_sql/springboot_09_sql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_6_configuration/springboot_6_configuration.iml" filepath="$PROJECT_DIR$/springboot_6_configuration/springboot_6_configuration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_mynews/springboot_mynews.iml" filepath="$PROJECT_DIR$/springboot_mynews/springboot_mynews.iml" />
+    </modules>
+  </component>
+</project>

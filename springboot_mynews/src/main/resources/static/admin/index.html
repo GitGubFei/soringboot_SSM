@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery/jquery-2.1.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <form action="" method="get" id="myform">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.do">
+                    新闻信息管理
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <div class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="news_Title" name="news_Title" placeholder="新闻标题" value="">
+                    </div>
+                    <input type="submit" id="btn_Sear" class="btn btn-default form-control" value="搜索" />
+                </div>
+                <p class="navbar-text navbar-right">当前用户：<span class="login_user_name"></span></a></p>
+            </div>
+        </div>
+    </form>
+</nav>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel-group" id="panel-965227">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="panel-title" data-toggle="collapse" data-parent="#panel-965227" href="#panel-element-508487">新闻分类</a>
+                    </div>
+                    <div id="panel-element-508487" class="panel-collapse in text-center">
+                    </div>
+                    <div class="panel-heading">
+                        <a class="panel-title" data-toggle="collapse" data-parent="#panel-965227" href="#panel-element-508486">添加信息</a>
+                    </div>
+                    <div id="panel-element-508486" class="panel-collapse collapse  text-center">
+                        <div class="panel-body"><button class="btn btn-link" data-toggle="modal" data-target="#myModal2">添加新闻分类</button></div>
+                        <div class="panel-body"><button class="btn btn-link" data-toggle="modal" data-target="#myModal">添加新闻</button></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-9">
+            <div class="table-responsive" id="app">
+                <form action="deleteinfoall.do" id="shownewsinfo" method="post">
+                    <table class="table table-bordered table-condensed table-striped table-hover text-center" id="news_resault_list_table">
+                        <tr>
+                            <th>编号</th>
+                            <th>标题</th>
+                            <th>时间</th>
+                            <th>作者</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div><!-- 修改新闻信息的模态框 -->
+    <form action="" id="showstuinfomodel" method="post">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">添加学生信息</h4>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-group">
+                                <input name="newsId" type="hidden" id="newsId" value=""/>
+                                <input type="text" class="form-control disabled" name="oldnewsId"
+                                       disabled id="oldnewsId" placeholder="编号" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="newsTitle"
+                                       id="newsTitle" placeholder="新闻标题" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="newsDate"
+                                       id="newsDate" placeholder="更新时间" value="">
+                            </div>
+                            <div class="form-group">
+                                <select name="newsType" id="newsType" class="form-control">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="newsAuthor"
+                                       id="newsAuthor" placeholder="作者" value="">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" style="resize:none;" name="newsContent" id="newsContent"></textarea>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <input type="submit" class="btn btn-primary" value="提交">
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </form>
+</div>
+<div><!-- 添加学生信息的模态框 -->
+    <form action="" id="modifynewstypeinfomodel" method="post">
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2Label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModal2Label">添加新闻分类信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                        <input name="typeId" type="hidden" id="typeId" value=""/>
+                        <input type="text" class="form-control disabled" name="oldtypeId"
+                               disabled id="oldtypeId" placeholder="编号" value="">
+                    </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="typeName"
+                                   id="typeName" placeholder="新闻分类名称" value="">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <input type="submit" class="btn btn-primary" value="提交">
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </form>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: #f8f8f84d">
+    <div style="margin: 0px auto; width: 500px; height: 50px; line-height: 50px; text-align: center;
+		color: #686868">
+        Copyright © 2021 任傲飞 Powered by PHP 7.4.18</div>
+</nav>
+<script src="../js/axios-0.18.0.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var currentPageIndex;
+    getNewstype();
+    $(function(){
+        $('#myModal2').on('hidden.bs.modal', function (e) {
+            $("#typeId").val("");
+            $("#oldtypeId").val("");
+            $("#typeName").val("");
+        })
+        $('#myModal').on('hidden.bs.modal', function (e) {
+            $("#newsId").val("");
+            $("#oldnewsId").val("");
+            $("#newsTitle").val("");
+            $("#newsDate").val("");
+            $("#newsAuthor").val("");
+            $("#newsContent").val("");
+        })
+        $("#myform").submit(function (e){
+            reqpagebyindex(1);
+            return false;
+        })
+        $("#showstuinfomodel").submit(function(){
+            if($("#newsId").val()){
+                axios.put("/allnews",$("#showstuinfomodel").serializeObject()).then((res)=>{
+                    if (res.data.flag){
+                        console.log("成功");
+                        reqpagebyindex(currentPageIndex);
+                        $('#myModal').modal('hide');
+                    }else{
+                        console.log("失败");}
+                })
+            }else{
+                axios.post("/allnews",$("#showstuinfomodel").serializeObject()).then((res)=>{
+                    if (res.data.flag){
+                        console.log("成功");
+                        reqpagebyindex(currentPageIndex);
+                        $('#myModal').modal('hide');
+                    }else{
+                        console.log("失败");}
+                })
+            }
+            return false;
+        })
+        $("#modifynewstypeinfomodel").submit(function(){
+            if($("#typeId").val()){
+                axios.put("/allnewstype",$("#modifynewstypeinfomodel").serializeObject()).then((res)=>{
+                    if (res.data.flag){
+                        console.log("成功");
+                        getNewstype();
+                        $('#myModal2').modal('hide');
+                    }else{
+                        console.log("失败");}
+                })
+            }else{
+                axios.post("/allnewstype",$("#modifynewstypeinfomodel").serializeObject()).then((res)=>{
+                    if (res.data.flag){
+                        console.log("成功");
+                        getNewstype();
+                        $('#myModal2').modal('hide');
+                    }else{
+                        console.log("失败");}
+                })
+            }
+
+            return false;
+        })
+
+    })
+    function DeleteInfo(news_id) {
+        console.log(news_id);
+        if (confirm("你确定要删除此新闻么？")) {
+            axios.delete("/allnews/" + news_id).then((res)=>{
+                if (res.data.flag) {
+                    reqpagebyindex(currentPageIndex);
+                } else {
+
+                }
+            }).finally(() => {
+                reqpagebyindex(currentPageIndex);
+            });
+        }
+    }
+    function ModifyInfo(news_id) {
+        axios.get("/allnews/"+news_id).then((res)=>{
+            if (res.data.data!=null){
+                $("#newsId").val(res.data.data.newsId);
+                $("#oldnewsId").val(res.data.data.newsId);
+                $("#newsTitle").val(res.data.data.newsTitle);
+                $("#newsDate").val(res.data.data.newsDate);
+                $("#newsType").val(res.data.data.newsType);
+                $("#newsAuthor").val(res.data.data.newsAuthor);
+                $("#newsContent").val(res.data.data.newsContent);
+                $('#myModal').modal('show');
+            }else{
+
+            }
+        })
+    }
+    function deleteNewsType(news_type_id) {
+        if (confirm("你确定要删除此分类么？")) {
+            axios.delete("/allnewstype/" + news_type_id).then((res)=>{
+                if (res.data.flag) {
+                    getNewstype();
+                } else {
+
+                }
+            })
+        }
+    }
+
+    function modifyNewsType(news_type_id) {
+
+        axios.get("/allnewstype/"+news_type_id).then((res)=>{
+            if (res.data.data!=null){
+                $("#typeId").val(res.data.data.typeId);
+                $("#oldtypeId").val(res.data.data.typeId);
+                $("#typeName").val(res.data.data.typeName);
+                $('#myModal2').modal('show');
+            }else{
+
+            }
+        })
+    }
+    function getNewstype(){
+        axios.get("/user/logininfo").then((res)=>{
+            $(".login_user_name").html(res.data.msg);
+        })
+        axios.get("/allnewstype").then((res)=>{
+            $("#panel-element-508487").empty();$("#newsType").empty();
+            let  shoufenqin= $("#panel-element-508487");
+            let newstypeselecttag= $("#newsType");
+            for (var i = 0; i < res.data.data.length; i++) {
+                let option = "<option value=" + res.data.data[i].typeId + ">" +  res.data.data[i].typeName + "</option>";
+                let option2="<div class=\"panel-body\">"+res.data.data[i].typeName+"[<a href=\"javascript:;\" onclick=\"modifyNewsType("+res.data.data[i].typeId+")\">修改</a>] [<a href=\"javascript:;\" onclick=\"deleteNewsType("+res.data.data[i].typeId+")\">删除</a>]</div>"
+                shoufenqin.append(option2);
+                newstypeselecttag.append(option);
+            }
+        })
+    }
+    function reqpagebyindex(currentIndex){
+    axios.get("/allnews/"+currentIndex+"/5?newsTitle="+$("#myform").serializeArray()[0].value).then((res)=>{
+        const news_list = res.data.data.records;
+        let news_table = $("#news_resault_list_table");
+        news_table.find("tr:not(:first)").remove();
+        $.each(news_list, function (index) {
+            let tr = "<tr>";
+            // tr += "<td><input type=\"checkbox\" class=\"checkstuid\" name=\"news_id[]\" value=\""+news_list[index].newsId+"\"></td>"
+            tr += "<td>"+news_list[index].newsId+"</td>";
+            tr += "<td>"+news_list[index].newsTitle+"</td>";
+            tr += "<td>"+news_list[index].newsDate+"</td>";
+            tr += "<td>"+news_list[index].newsAuthor+"</td>";
+            tr += "<td class='text-center'><a class='btn btn-default' onclick='ModifyInfo("+news_list[index].newsId+")'>修改</a>  <a class='btn btn-danger' onclick='DeleteInfo("+news_list[index].newsId+")'>删除</a></td>\""
+            tr += "</tr>";
+            news_table.append(tr);
+        })
+        let tr="<tr>";
+        tr+= "<td colspan=\"8\">共" +res.data.data.total+"条新闻&nbsp;&nbsp;";
+        tr+="第" +res.data.data.current+ "页&nbsp;/&nbsp;共"+res.data.data.pages+ "页";
+        if (res.data.data.current != 1 && res.data.data.current != 0) {
+            tr+= "&nbsp;&nbsp;<a href='javascript:;' onclick=\"reqpagebyindex("+1+")\">首页</a>";
+            tr+= "&nbsp;&nbsp;<a href='javascript:;' onclick=\"reqpagebyindex("+(res.data.data.current-1)+")\">上一页</a>";
+        }
+        else tr+="&nbsp;&nbsp;首页&nbsp;&nbsp;上一页";
+        if (res.data.data.current!= res.data.data.pages) {
+            tr+= "&nbsp;&nbsp;<a href='javascript:;' onclick=\"reqpagebyindex("+(res.data.data.current+1)+")\">下一页</a>";
+            tr+= "&nbsp;&nbsp;<a href='javascript:;' onclick=\"reqpagebyindex("+res.data.data.pages+")\">尾页</a>";
+        }
+        else tr+= "&nbsp;&nbsp;下一页&nbsp;&nbsp;尾页";
+        tr += "</td></tr>"
+        news_table.append(tr);
+        currentPageIndex=res.data.data.current;
+    })
+    return ;
+}
+    $.fn.serializeObject = function() {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [ o[this.name] ];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.OrderLineMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.OrderLine">
+    <id column="odd_id" jdbcType="INTEGER" property="oddId" />
+    <result column="odd_order_id" jdbcType="INTEGER" property="oddOrderId" />
+    <result column="odd_prod_id" jdbcType="INTEGER" property="oddProdId" />
+    <result column="odd_count" jdbcType="INTEGER" property="oddCount" />
+    <result column="odd_unit" jdbcType="VARCHAR" property="oddUnit" />
+    <result column="odd_price" jdbcType="DECIMAL" property="oddPrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    odd_id, odd_order_id, odd_prod_id, odd_count, odd_unit, odd_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_order_line
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_order_line
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.OrderLine">
+    insert into tbl_order_line (odd_id, odd_order_id, odd_prod_id, 
+      odd_count, odd_unit, odd_price
+      )
+    values (#{oddId,jdbcType=INTEGER}, #{oddOrderId,jdbcType=INTEGER}, #{oddProdId,jdbcType=INTEGER}, 
+      #{oddCount,jdbcType=INTEGER}, #{oddUnit,jdbcType=VARCHAR}, #{oddPrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.OrderLine">
+    insert into tbl_order_line
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oddId != null">
+        odd_id,
+      </if>
+      <if test="oddOrderId != null">
+        odd_order_id,
+      </if>
+      <if test="oddProdId != null">
+        odd_prod_id,
+      </if>
+      <if test="oddCount != null">
+        odd_count,
+      </if>
+      <if test="oddUnit != null">
+        odd_unit,
+      </if>
+      <if test="oddPrice != null">
+        odd_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oddId != null">
+        #{oddId,jdbcType=INTEGER},
+      </if>
+      <if test="oddOrderId != null">
+        #{oddOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="oddProdId != null">
+        #{oddProdId,jdbcType=INTEGER},
+      </if>
+      <if test="oddCount != null">
+        #{oddCount,jdbcType=INTEGER},
+      </if>
+      <if test="oddUnit != null">
+        #{oddUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="oddPrice != null">
+        #{oddPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.OrderLine">
+    update tbl_order_line
+    <set>
+      <if test="oddOrderId != null">
+        odd_order_id = #{oddOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="oddProdId != null">
+        odd_prod_id = #{oddProdId,jdbcType=INTEGER},
+      </if>
+      <if test="oddCount != null">
+        odd_count = #{oddCount,jdbcType=INTEGER},
+      </if>
+      <if test="oddUnit != null">
+        odd_unit = #{oddUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="oddPrice != null">
+        odd_price = #{oddPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.OrderLine">
+    update tbl_order_line
+    set odd_order_id = #{oddOrderId,jdbcType=INTEGER},
+      odd_prod_id = #{oddProdId,jdbcType=INTEGER},
+      odd_count = #{oddCount,jdbcType=INTEGER},
+      odd_unit = #{oddUnit,jdbcType=VARCHAR},
+      odd_price = #{oddPrice,jdbcType=DECIMAL}
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.OrderLine">
+    <id column="odd_id" jdbcType="INTEGER" property="oddId" />
+    <result column="odd_order_id" jdbcType="INTEGER" property="oddOrderId" />
+    <result column="odd_prod_id" jdbcType="INTEGER" property="oddProdId" />
+    <result column="odd_count" jdbcType="INTEGER" property="oddCount" />
+    <result column="odd_unit" jdbcType="VARCHAR" property="oddUnit" />
+    <result column="odd_price" jdbcType="DECIMAL" property="oddPrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    odd_id, odd_order_id, odd_prod_id, odd_count, odd_unit, odd_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_order_line
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_order_line
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.OrderLine">
+    insert into tbl_order_line (odd_id, odd_order_id, odd_prod_id, 
+      odd_count, odd_unit, odd_price
+      )
+    values (#{oddId,jdbcType=INTEGER}, #{oddOrderId,jdbcType=INTEGER}, #{oddProdId,jdbcType=INTEGER}, 
+      #{oddCount,jdbcType=INTEGER}, #{oddUnit,jdbcType=VARCHAR}, #{oddPrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.OrderLine">
+    insert into tbl_order_line
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oddId != null">
+        odd_id,
+      </if>
+      <if test="oddOrderId != null">
+        odd_order_id,
+      </if>
+      <if test="oddProdId != null">
+        odd_prod_id,
+      </if>
+      <if test="oddCount != null">
+        odd_count,
+      </if>
+      <if test="oddUnit != null">
+        odd_unit,
+      </if>
+      <if test="oddPrice != null">
+        odd_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oddId != null">
+        #{oddId,jdbcType=INTEGER},
+      </if>
+      <if test="oddOrderId != null">
+        #{oddOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="oddProdId != null">
+        #{oddProdId,jdbcType=INTEGER},
+      </if>
+      <if test="oddCount != null">
+        #{oddCount,jdbcType=INTEGER},
+      </if>
+      <if test="oddUnit != null">
+        #{oddUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="oddPrice != null">
+        #{oddPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.OrderLine">
+    update tbl_order_line
+    <set>
+      <if test="oddOrderId != null">
+        odd_order_id = #{oddOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="oddProdId != null">
+        odd_prod_id = #{oddProdId,jdbcType=INTEGER},
+      </if>
+      <if test="oddCount != null">
+        odd_count = #{oddCount,jdbcType=INTEGER},
+      </if>
+      <if test="oddUnit != null">
+        odd_unit = #{oddUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="oddPrice != null">
+        odd_price = #{oddPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.OrderLine">
+    update tbl_order_line
+    set odd_order_id = #{oddOrderId,jdbcType=INTEGER},
+      odd_prod_id = #{oddProdId,jdbcType=INTEGER},
+      odd_count = #{oddCount,jdbcType=INTEGER},
+      odd_unit = #{oddUnit,jdbcType=VARCHAR},
+      odd_price = #{oddPrice,jdbcType=DECIMAL}
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.OrderLine">
+    <id column="odd_id" jdbcType="INTEGER" property="oddId" />
+    <result column="odd_order_id" jdbcType="INTEGER" property="oddOrderId" />
+    <result column="odd_prod_id" jdbcType="INTEGER" property="oddProdId" />
+    <result column="odd_count" jdbcType="INTEGER" property="oddCount" />
+    <result column="odd_unit" jdbcType="VARCHAR" property="oddUnit" />
+    <result column="odd_price" jdbcType="DECIMAL" property="oddPrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    odd_id, odd_order_id, odd_prod_id, odd_count, odd_unit, odd_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_order_line
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_order_line
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.OrderLine">
+    insert into tbl_order_line (odd_id, odd_order_id, odd_prod_id, 
+      odd_count, odd_unit, odd_price
+      )
+    values (#{oddId,jdbcType=INTEGER}, #{oddOrderId,jdbcType=INTEGER}, #{oddProdId,jdbcType=INTEGER}, 
+      #{oddCount,jdbcType=INTEGER}, #{oddUnit,jdbcType=VARCHAR}, #{oddPrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.OrderLine">
+    insert into tbl_order_line
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oddId != null">
+        odd_id,
+      </if>
+      <if test="oddOrderId != null">
+        odd_order_id,
+      </if>
+      <if test="oddProdId != null">
+        odd_prod_id,
+      </if>
+      <if test="oddCount != null">
+        odd_count,
+      </if>
+      <if test="oddUnit != null">
+        odd_unit,
+      </if>
+      <if test="oddPrice != null">
+        odd_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oddId != null">
+        #{oddId,jdbcType=INTEGER},
+      </if>
+      <if test="oddOrderId != null">
+        #{oddOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="oddProdId != null">
+        #{oddProdId,jdbcType=INTEGER},
+      </if>
+      <if test="oddCount != null">
+        #{oddCount,jdbcType=INTEGER},
+      </if>
+      <if test="oddUnit != null">
+        #{oddUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="oddPrice != null">
+        #{oddPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.OrderLine">
+    update tbl_order_line
+    <set>
+      <if test="oddOrderId != null">
+        odd_order_id = #{oddOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="oddProdId != null">
+        odd_prod_id = #{oddProdId,jdbcType=INTEGER},
+      </if>
+      <if test="oddCount != null">
+        odd_count = #{oddCount,jdbcType=INTEGER},
+      </if>
+      <if test="oddUnit != null">
+        odd_unit = #{oddUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="oddPrice != null">
+        odd_price = #{oddPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.OrderLine">
+    update tbl_order_line
+    set odd_order_id = #{oddOrderId,jdbcType=INTEGER},
+      odd_prod_id = #{oddProdId,jdbcType=INTEGER},
+      odd_count = #{oddCount,jdbcType=INTEGER},
+      odd_unit = #{oddUnit,jdbcType=VARCHAR},
+      odd_price = #{oddPrice,jdbcType=DECIMAL}
+    where odd_id = #{oddId,jdbcType=INTEGER}
+  </update>
+</mapper>

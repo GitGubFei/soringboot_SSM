@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.StorageMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.Storage">
+    <id column="stk_id" jdbcType="INTEGER" property="stkId" />
+    <result column="stk_prod_id" jdbcType="INTEGER" property="stkProdId" />
+    <result column="stk_ware_house" jdbcType="VARCHAR" property="stkWareHouse" />
+    <result column="stk_ware" jdbcType="VARCHAR" property="stkWare" />
+    <result column="stk_count" jdbcType="INTEGER" property="stkCount" />
+    <result column="stk_memo" jdbcType="VARCHAR" property="stkMemo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    stk_id, stk_prod_id, stk_ware_house, stk_ware, stk_count, stk_memo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_storage
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_storage
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Storage">
+    insert into tbl_storage (stk_id, stk_prod_id, stk_ware_house, 
+      stk_ware, stk_count, stk_memo
+      )
+    values (#{stkId,jdbcType=INTEGER}, #{stkProdId,jdbcType=INTEGER}, #{stkWareHouse,jdbcType=VARCHAR}, 
+      #{stkWare,jdbcType=VARCHAR}, #{stkCount,jdbcType=INTEGER}, #{stkMemo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Storage">
+    insert into tbl_storage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stkId != null">
+        stk_id,
+      </if>
+      <if test="stkProdId != null">
+        stk_prod_id,
+      </if>
+      <if test="stkWareHouse != null">
+        stk_ware_house,
+      </if>
+      <if test="stkWare != null">
+        stk_ware,
+      </if>
+      <if test="stkCount != null">
+        stk_count,
+      </if>
+      <if test="stkMemo != null">
+        stk_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stkId != null">
+        #{stkId,jdbcType=INTEGER},
+      </if>
+      <if test="stkProdId != null">
+        #{stkProdId,jdbcType=INTEGER},
+      </if>
+      <if test="stkWareHouse != null">
+        #{stkWareHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="stkWare != null">
+        #{stkWare,jdbcType=VARCHAR},
+      </if>
+      <if test="stkCount != null">
+        #{stkCount,jdbcType=INTEGER},
+      </if>
+      <if test="stkMemo != null">
+        #{stkMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Storage">
+    update tbl_storage
+    <set>
+      <if test="stkProdId != null">
+        stk_prod_id = #{stkProdId,jdbcType=INTEGER},
+      </if>
+      <if test="stkWareHouse != null">
+        stk_ware_house = #{stkWareHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="stkWare != null">
+        stk_ware = #{stkWare,jdbcType=VARCHAR},
+      </if>
+      <if test="stkCount != null">
+        stk_count = #{stkCount,jdbcType=INTEGER},
+      </if>
+      <if test="stkMemo != null">
+        stk_memo = #{stkMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Storage">
+    update tbl_storage
+    set stk_prod_id = #{stkProdId,jdbcType=INTEGER},
+      stk_ware_house = #{stkWareHouse,jdbcType=VARCHAR},
+      stk_ware = #{stkWare,jdbcType=VARCHAR},
+      stk_count = #{stkCount,jdbcType=INTEGER},
+      stk_memo = #{stkMemo,jdbcType=VARCHAR}
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.Storage">
+    <id column="stk_id" jdbcType="INTEGER" property="stkId" />
+    <result column="stk_prod_id" jdbcType="INTEGER" property="stkProdId" />
+    <result column="stk_ware_house" jdbcType="VARCHAR" property="stkWareHouse" />
+    <result column="stk_ware" jdbcType="VARCHAR" property="stkWare" />
+    <result column="stk_count" jdbcType="INTEGER" property="stkCount" />
+    <result column="stk_memo" jdbcType="VARCHAR" property="stkMemo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    stk_id, stk_prod_id, stk_ware_house, stk_ware, stk_count, stk_memo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_storage
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_storage
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Storage">
+    insert into tbl_storage (stk_id, stk_prod_id, stk_ware_house, 
+      stk_ware, stk_count, stk_memo
+      )
+    values (#{stkId,jdbcType=INTEGER}, #{stkProdId,jdbcType=INTEGER}, #{stkWareHouse,jdbcType=VARCHAR}, 
+      #{stkWare,jdbcType=VARCHAR}, #{stkCount,jdbcType=INTEGER}, #{stkMemo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Storage">
+    insert into tbl_storage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stkId != null">
+        stk_id,
+      </if>
+      <if test="stkProdId != null">
+        stk_prod_id,
+      </if>
+      <if test="stkWareHouse != null">
+        stk_ware_house,
+      </if>
+      <if test="stkWare != null">
+        stk_ware,
+      </if>
+      <if test="stkCount != null">
+        stk_count,
+      </if>
+      <if test="stkMemo != null">
+        stk_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stkId != null">
+        #{stkId,jdbcType=INTEGER},
+      </if>
+      <if test="stkProdId != null">
+        #{stkProdId,jdbcType=INTEGER},
+      </if>
+      <if test="stkWareHouse != null">
+        #{stkWareHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="stkWare != null">
+        #{stkWare,jdbcType=VARCHAR},
+      </if>
+      <if test="stkCount != null">
+        #{stkCount,jdbcType=INTEGER},
+      </if>
+      <if test="stkMemo != null">
+        #{stkMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Storage">
+    update tbl_storage
+    <set>
+      <if test="stkProdId != null">
+        stk_prod_id = #{stkProdId,jdbcType=INTEGER},
+      </if>
+      <if test="stkWareHouse != null">
+        stk_ware_house = #{stkWareHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="stkWare != null">
+        stk_ware = #{stkWare,jdbcType=VARCHAR},
+      </if>
+      <if test="stkCount != null">
+        stk_count = #{stkCount,jdbcType=INTEGER},
+      </if>
+      <if test="stkMemo != null">
+        stk_memo = #{stkMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Storage">
+    update tbl_storage
+    set stk_prod_id = #{stkProdId,jdbcType=INTEGER},
+      stk_ware_house = #{stkWareHouse,jdbcType=VARCHAR},
+      stk_ware = #{stkWare,jdbcType=VARCHAR},
+      stk_count = #{stkCount,jdbcType=INTEGER},
+      stk_memo = #{stkMemo,jdbcType=VARCHAR}
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.Storage">
+    <id column="stk_id" jdbcType="INTEGER" property="stkId" />
+    <result column="stk_prod_id" jdbcType="INTEGER" property="stkProdId" />
+    <result column="stk_ware_house" jdbcType="VARCHAR" property="stkWareHouse" />
+    <result column="stk_ware" jdbcType="VARCHAR" property="stkWare" />
+    <result column="stk_count" jdbcType="INTEGER" property="stkCount" />
+    <result column="stk_memo" jdbcType="VARCHAR" property="stkMemo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    stk_id, stk_prod_id, stk_ware_house, stk_ware, stk_count, stk_memo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_storage
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_storage
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Storage">
+    insert into tbl_storage (stk_id, stk_prod_id, stk_ware_house, 
+      stk_ware, stk_count, stk_memo
+      )
+    values (#{stkId,jdbcType=INTEGER}, #{stkProdId,jdbcType=INTEGER}, #{stkWareHouse,jdbcType=VARCHAR}, 
+      #{stkWare,jdbcType=VARCHAR}, #{stkCount,jdbcType=INTEGER}, #{stkMemo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Storage">
+    insert into tbl_storage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stkId != null">
+        stk_id,
+      </if>
+      <if test="stkProdId != null">
+        stk_prod_id,
+      </if>
+      <if test="stkWareHouse != null">
+        stk_ware_house,
+      </if>
+      <if test="stkWare != null">
+        stk_ware,
+      </if>
+      <if test="stkCount != null">
+        stk_count,
+      </if>
+      <if test="stkMemo != null">
+        stk_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stkId != null">
+        #{stkId,jdbcType=INTEGER},
+      </if>
+      <if test="stkProdId != null">
+        #{stkProdId,jdbcType=INTEGER},
+      </if>
+      <if test="stkWareHouse != null">
+        #{stkWareHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="stkWare != null">
+        #{stkWare,jdbcType=VARCHAR},
+      </if>
+      <if test="stkCount != null">
+        #{stkCount,jdbcType=INTEGER},
+      </if>
+      <if test="stkMemo != null">
+        #{stkMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Storage">
+    update tbl_storage
+    <set>
+      <if test="stkProdId != null">
+        stk_prod_id = #{stkProdId,jdbcType=INTEGER},
+      </if>
+      <if test="stkWareHouse != null">
+        stk_ware_house = #{stkWareHouse,jdbcType=VARCHAR},
+      </if>
+      <if test="stkWare != null">
+        stk_ware = #{stkWare,jdbcType=VARCHAR},
+      </if>
+      <if test="stkCount != null">
+        stk_count = #{stkCount,jdbcType=INTEGER},
+      </if>
+      <if test="stkMemo != null">
+        stk_memo = #{stkMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Storage">
+    update tbl_storage
+    set stk_prod_id = #{stkProdId,jdbcType=INTEGER},
+      stk_ware_house = #{stkWareHouse,jdbcType=VARCHAR},
+      stk_ware = #{stkWare,jdbcType=VARCHAR},
+      stk_count = #{stkCount,jdbcType=INTEGER},
+      stk_memo = #{stkMemo,jdbcType=VARCHAR}
+    where stk_id = #{stkId,jdbcType=INTEGER}
+  </update>
+</mapper>

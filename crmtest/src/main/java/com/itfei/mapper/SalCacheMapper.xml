@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.SalCacheMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.SalCache">
+    <id column="chc_id" jdbcType="INTEGER" property="chcId" />
+    <result column="chc_source" jdbcType="VARCHAR" property="chcSource" />
+    <result column="chc_cust_name" jdbcType="VARCHAR" property="chcCustName" />
+    <result column="chc_title" jdbcType="VARCHAR" property="chcTitle" />
+    <result column="chc_rate" jdbcType="INTEGER" property="chcRate" />
+    <result column="chc_linkman" jdbcType="VARCHAR" property="chcLinkman" />
+    <result column="chc_tel" jdbcType="VARCHAR" property="chcTel" />
+    <result column="chc_desc" jdbcType="VARCHAR" property="chcDesc" />
+    <result column="chc_create_id" jdbcType="INTEGER" property="chcCreateId" />
+    <result column="chc_create_by" jdbcType="VARCHAR" property="chcCreateBy" />
+    <result column="chc_create_date" jdbcType="TIMESTAMP" property="chcCreateDate" />
+    <result column="chc_due_id" jdbcType="INTEGER" property="chcDueId" />
+    <result column="chc_due_to" jdbcType="VARCHAR" property="chcDueTo" />
+    <result column="chc_due_date" jdbcType="TIMESTAMP" property="chcDueDate" />
+    <result column="chc_status" jdbcType="VARCHAR" property="chcStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    chc_id, chc_source, chc_cust_name, chc_title, chc_rate, chc_linkman, chc_tel, chc_desc, 
+    chc_create_id, chc_create_by, chc_create_date, chc_due_id, chc_due_to, chc_due_date, 
+    chc_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sal_chance
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_sal_chance
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SalCache">
+    insert into tbl_sal_chance (chc_id, chc_source, chc_cust_name, 
+      chc_title, chc_rate, chc_linkman, 
+      chc_tel, chc_desc, chc_create_id, 
+      chc_create_by, chc_create_date, chc_due_id, 
+      chc_due_to, chc_due_date, chc_status
+      )
+    values (#{chcId,jdbcType=INTEGER}, #{chcSource,jdbcType=VARCHAR}, #{chcCustName,jdbcType=VARCHAR}, 
+      #{chcTitle,jdbcType=VARCHAR}, #{chcRate,jdbcType=INTEGER}, #{chcLinkman,jdbcType=VARCHAR}, 
+      #{chcTel,jdbcType=VARCHAR}, #{chcDesc,jdbcType=VARCHAR}, #{chcCreateId,jdbcType=INTEGER}, 
+      #{chcCreateBy,jdbcType=VARCHAR}, #{chcCreateDate,jdbcType=TIMESTAMP}, #{chcDueId,jdbcType=INTEGER}, 
+      #{chcDueTo,jdbcType=VARCHAR}, #{chcDueDate,jdbcType=TIMESTAMP}, #{chcStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SalCache">
+    insert into tbl_sal_chance
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="chcId != null">
+        chc_id,
+      </if>
+      <if test="chcSource != null">
+        chc_source,
+      </if>
+      <if test="chcCustName != null">
+        chc_cust_name,
+      </if>
+      <if test="chcTitle != null">
+        chc_title,
+      </if>
+      <if test="chcRate != null">
+        chc_rate,
+      </if>
+      <if test="chcLinkman != null">
+        chc_linkman,
+      </if>
+      <if test="chcTel != null">
+        chc_tel,
+      </if>
+      <if test="chcDesc != null">
+        chc_desc,
+      </if>
+      <if test="chcCreateId != null">
+        chc_create_id,
+      </if>
+      <if test="chcCreateBy != null">
+        chc_create_by,
+      </if>
+      <if test="chcCreateDate != null">
+        chc_create_date,
+      </if>
+      <if test="chcDueId != null">
+        chc_due_id,
+      </if>
+      <if test="chcDueTo != null">
+        chc_due_to,
+      </if>
+      <if test="chcDueDate != null">
+        chc_due_date,
+      </if>
+      <if test="chcStatus != null">
+        chc_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="chcId != null">
+        #{chcId,jdbcType=INTEGER},
+      </if>
+      <if test="chcSource != null">
+        #{chcSource,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCustName != null">
+        #{chcCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTitle != null">
+        #{chcTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chcRate != null">
+        #{chcRate,jdbcType=INTEGER},
+      </if>
+      <if test="chcLinkman != null">
+        #{chcLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTel != null">
+        #{chcTel,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDesc != null">
+        #{chcDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateId != null">
+        #{chcCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="chcCreateBy != null">
+        #{chcCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateDate != null">
+        #{chcCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcDueId != null">
+        #{chcDueId,jdbcType=INTEGER},
+      </if>
+      <if test="chcDueTo != null">
+        #{chcDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDueDate != null">
+        #{chcDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcStatus != null">
+        #{chcStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SalCache">
+    update tbl_sal_chance
+    <set>
+      <if test="chcSource != null">
+        chc_source = #{chcSource,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCustName != null">
+        chc_cust_name = #{chcCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTitle != null">
+        chc_title = #{chcTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chcRate != null">
+        chc_rate = #{chcRate,jdbcType=INTEGER},
+      </if>
+      <if test="chcLinkman != null">
+        chc_linkman = #{chcLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTel != null">
+        chc_tel = #{chcTel,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDesc != null">
+        chc_desc = #{chcDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateId != null">
+        chc_create_id = #{chcCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="chcCreateBy != null">
+        chc_create_by = #{chcCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateDate != null">
+        chc_create_date = #{chcCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcDueId != null">
+        chc_due_id = #{chcDueId,jdbcType=INTEGER},
+      </if>
+      <if test="chcDueTo != null">
+        chc_due_to = #{chcDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDueDate != null">
+        chc_due_date = #{chcDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcStatus != null">
+        chc_status = #{chcStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SalCache">
+    update tbl_sal_chance
+    set chc_source = #{chcSource,jdbcType=VARCHAR},
+      chc_cust_name = #{chcCustName,jdbcType=VARCHAR},
+      chc_title = #{chcTitle,jdbcType=VARCHAR},
+      chc_rate = #{chcRate,jdbcType=INTEGER},
+      chc_linkman = #{chcLinkman,jdbcType=VARCHAR},
+      chc_tel = #{chcTel,jdbcType=VARCHAR},
+      chc_desc = #{chcDesc,jdbcType=VARCHAR},
+      chc_create_id = #{chcCreateId,jdbcType=INTEGER},
+      chc_create_by = #{chcCreateBy,jdbcType=VARCHAR},
+      chc_create_date = #{chcCreateDate,jdbcType=TIMESTAMP},
+      chc_due_id = #{chcDueId,jdbcType=INTEGER},
+      chc_due_to = #{chcDueTo,jdbcType=VARCHAR},
+      chc_due_date = #{chcDueDate,jdbcType=TIMESTAMP},
+      chc_status = #{chcStatus,jdbcType=VARCHAR}
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.SalCache">
+    <id column="chc_id" jdbcType="INTEGER" property="chcId" />
+    <result column="chc_source" jdbcType="VARCHAR" property="chcSource" />
+    <result column="chc_cust_name" jdbcType="VARCHAR" property="chcCustName" />
+    <result column="chc_title" jdbcType="VARCHAR" property="chcTitle" />
+    <result column="chc_rate" jdbcType="INTEGER" property="chcRate" />
+    <result column="chc_linkman" jdbcType="VARCHAR" property="chcLinkman" />
+    <result column="chc_tel" jdbcType="VARCHAR" property="chcTel" />
+    <result column="chc_desc" jdbcType="VARCHAR" property="chcDesc" />
+    <result column="chc_create_id" jdbcType="INTEGER" property="chcCreateId" />
+    <result column="chc_create_by" jdbcType="VARCHAR" property="chcCreateBy" />
+    <result column="chc_create_date" jdbcType="TIMESTAMP" property="chcCreateDate" />
+    <result column="chc_due_id" jdbcType="INTEGER" property="chcDueId" />
+    <result column="chc_due_to" jdbcType="VARCHAR" property="chcDueTo" />
+    <result column="chc_due_date" jdbcType="TIMESTAMP" property="chcDueDate" />
+    <result column="chc_status" jdbcType="VARCHAR" property="chcStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    chc_id, chc_source, chc_cust_name, chc_title, chc_rate, chc_linkman, chc_tel, chc_desc, 
+    chc_create_id, chc_create_by, chc_create_date, chc_due_id, chc_due_to, chc_due_date, 
+    chc_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sal_chance
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_sal_chance
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SalCache">
+    insert into tbl_sal_chance (chc_id, chc_source, chc_cust_name, 
+      chc_title, chc_rate, chc_linkman, 
+      chc_tel, chc_desc, chc_create_id, 
+      chc_create_by, chc_create_date, chc_due_id, 
+      chc_due_to, chc_due_date, chc_status
+      )
+    values (#{chcId,jdbcType=INTEGER}, #{chcSource,jdbcType=VARCHAR}, #{chcCustName,jdbcType=VARCHAR}, 
+      #{chcTitle,jdbcType=VARCHAR}, #{chcRate,jdbcType=INTEGER}, #{chcLinkman,jdbcType=VARCHAR}, 
+      #{chcTel,jdbcType=VARCHAR}, #{chcDesc,jdbcType=VARCHAR}, #{chcCreateId,jdbcType=INTEGER}, 
+      #{chcCreateBy,jdbcType=VARCHAR}, #{chcCreateDate,jdbcType=TIMESTAMP}, #{chcDueId,jdbcType=INTEGER}, 
+      #{chcDueTo,jdbcType=VARCHAR}, #{chcDueDate,jdbcType=TIMESTAMP}, #{chcStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SalCache">
+    insert into tbl_sal_chance
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="chcId != null">
+        chc_id,
+      </if>
+      <if test="chcSource != null">
+        chc_source,
+      </if>
+      <if test="chcCustName != null">
+        chc_cust_name,
+      </if>
+      <if test="chcTitle != null">
+        chc_title,
+      </if>
+      <if test="chcRate != null">
+        chc_rate,
+      </if>
+      <if test="chcLinkman != null">
+        chc_linkman,
+      </if>
+      <if test="chcTel != null">
+        chc_tel,
+      </if>
+      <if test="chcDesc != null">
+        chc_desc,
+      </if>
+      <if test="chcCreateId != null">
+        chc_create_id,
+      </if>
+      <if test="chcCreateBy != null">
+        chc_create_by,
+      </if>
+      <if test="chcCreateDate != null">
+        chc_create_date,
+      </if>
+      <if test="chcDueId != null">
+        chc_due_id,
+      </if>
+      <if test="chcDueTo != null">
+        chc_due_to,
+      </if>
+      <if test="chcDueDate != null">
+        chc_due_date,
+      </if>
+      <if test="chcStatus != null">
+        chc_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="chcId != null">
+        #{chcId,jdbcType=INTEGER},
+      </if>
+      <if test="chcSource != null">
+        #{chcSource,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCustName != null">
+        #{chcCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTitle != null">
+        #{chcTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chcRate != null">
+        #{chcRate,jdbcType=INTEGER},
+      </if>
+      <if test="chcLinkman != null">
+        #{chcLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTel != null">
+        #{chcTel,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDesc != null">
+        #{chcDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateId != null">
+        #{chcCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="chcCreateBy != null">
+        #{chcCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateDate != null">
+        #{chcCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcDueId != null">
+        #{chcDueId,jdbcType=INTEGER},
+      </if>
+      <if test="chcDueTo != null">
+        #{chcDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDueDate != null">
+        #{chcDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcStatus != null">
+        #{chcStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SalCache">
+    update tbl_sal_chance
+    <set>
+      <if test="chcSource != null">
+        chc_source = #{chcSource,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCustName != null">
+        chc_cust_name = #{chcCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTitle != null">
+        chc_title = #{chcTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chcRate != null">
+        chc_rate = #{chcRate,jdbcType=INTEGER},
+      </if>
+      <if test="chcLinkman != null">
+        chc_linkman = #{chcLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTel != null">
+        chc_tel = #{chcTel,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDesc != null">
+        chc_desc = #{chcDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateId != null">
+        chc_create_id = #{chcCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="chcCreateBy != null">
+        chc_create_by = #{chcCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateDate != null">
+        chc_create_date = #{chcCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcDueId != null">
+        chc_due_id = #{chcDueId,jdbcType=INTEGER},
+      </if>
+      <if test="chcDueTo != null">
+        chc_due_to = #{chcDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDueDate != null">
+        chc_due_date = #{chcDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcStatus != null">
+        chc_status = #{chcStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SalCache">
+    update tbl_sal_chance
+    set chc_source = #{chcSource,jdbcType=VARCHAR},
+      chc_cust_name = #{chcCustName,jdbcType=VARCHAR},
+      chc_title = #{chcTitle,jdbcType=VARCHAR},
+      chc_rate = #{chcRate,jdbcType=INTEGER},
+      chc_linkman = #{chcLinkman,jdbcType=VARCHAR},
+      chc_tel = #{chcTel,jdbcType=VARCHAR},
+      chc_desc = #{chcDesc,jdbcType=VARCHAR},
+      chc_create_id = #{chcCreateId,jdbcType=INTEGER},
+      chc_create_by = #{chcCreateBy,jdbcType=VARCHAR},
+      chc_create_date = #{chcCreateDate,jdbcType=TIMESTAMP},
+      chc_due_id = #{chcDueId,jdbcType=INTEGER},
+      chc_due_to = #{chcDueTo,jdbcType=VARCHAR},
+      chc_due_date = #{chcDueDate,jdbcType=TIMESTAMP},
+      chc_status = #{chcStatus,jdbcType=VARCHAR}
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.SalCache">
+    <id column="chc_id" jdbcType="INTEGER" property="chcId" />
+    <result column="chc_source" jdbcType="VARCHAR" property="chcSource" />
+    <result column="chc_cust_name" jdbcType="VARCHAR" property="chcCustName" />
+    <result column="chc_title" jdbcType="VARCHAR" property="chcTitle" />
+    <result column="chc_rate" jdbcType="INTEGER" property="chcRate" />
+    <result column="chc_linkman" jdbcType="VARCHAR" property="chcLinkman" />
+    <result column="chc_tel" jdbcType="VARCHAR" property="chcTel" />
+    <result column="chc_desc" jdbcType="VARCHAR" property="chcDesc" />
+    <result column="chc_create_id" jdbcType="INTEGER" property="chcCreateId" />
+    <result column="chc_create_by" jdbcType="VARCHAR" property="chcCreateBy" />
+    <result column="chc_create_date" jdbcType="TIMESTAMP" property="chcCreateDate" />
+    <result column="chc_due_id" jdbcType="INTEGER" property="chcDueId" />
+    <result column="chc_due_to" jdbcType="VARCHAR" property="chcDueTo" />
+    <result column="chc_due_date" jdbcType="TIMESTAMP" property="chcDueDate" />
+    <result column="chc_status" jdbcType="VARCHAR" property="chcStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    chc_id, chc_source, chc_cust_name, chc_title, chc_rate, chc_linkman, chc_tel, chc_desc, 
+    chc_create_id, chc_create_by, chc_create_date, chc_due_id, chc_due_to, chc_due_date, 
+    chc_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sal_chance
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_sal_chance
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SalCache">
+    insert into tbl_sal_chance (chc_id, chc_source, chc_cust_name, 
+      chc_title, chc_rate, chc_linkman, 
+      chc_tel, chc_desc, chc_create_id, 
+      chc_create_by, chc_create_date, chc_due_id, 
+      chc_due_to, chc_due_date, chc_status
+      )
+    values (#{chcId,jdbcType=INTEGER}, #{chcSource,jdbcType=VARCHAR}, #{chcCustName,jdbcType=VARCHAR}, 
+      #{chcTitle,jdbcType=VARCHAR}, #{chcRate,jdbcType=INTEGER}, #{chcLinkman,jdbcType=VARCHAR}, 
+      #{chcTel,jdbcType=VARCHAR}, #{chcDesc,jdbcType=VARCHAR}, #{chcCreateId,jdbcType=INTEGER}, 
+      #{chcCreateBy,jdbcType=VARCHAR}, #{chcCreateDate,jdbcType=TIMESTAMP}, #{chcDueId,jdbcType=INTEGER}, 
+      #{chcDueTo,jdbcType=VARCHAR}, #{chcDueDate,jdbcType=TIMESTAMP}, #{chcStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SalCache">
+    insert into tbl_sal_chance
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="chcId != null">
+        chc_id,
+      </if>
+      <if test="chcSource != null">
+        chc_source,
+      </if>
+      <if test="chcCustName != null">
+        chc_cust_name,
+      </if>
+      <if test="chcTitle != null">
+        chc_title,
+      </if>
+      <if test="chcRate != null">
+        chc_rate,
+      </if>
+      <if test="chcLinkman != null">
+        chc_linkman,
+      </if>
+      <if test="chcTel != null">
+        chc_tel,
+      </if>
+      <if test="chcDesc != null">
+        chc_desc,
+      </if>
+      <if test="chcCreateId != null">
+        chc_create_id,
+      </if>
+      <if test="chcCreateBy != null">
+        chc_create_by,
+      </if>
+      <if test="chcCreateDate != null">
+        chc_create_date,
+      </if>
+      <if test="chcDueId != null">
+        chc_due_id,
+      </if>
+      <if test="chcDueTo != null">
+        chc_due_to,
+      </if>
+      <if test="chcDueDate != null">
+        chc_due_date,
+      </if>
+      <if test="chcStatus != null">
+        chc_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="chcId != null">
+        #{chcId,jdbcType=INTEGER},
+      </if>
+      <if test="chcSource != null">
+        #{chcSource,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCustName != null">
+        #{chcCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTitle != null">
+        #{chcTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chcRate != null">
+        #{chcRate,jdbcType=INTEGER},
+      </if>
+      <if test="chcLinkman != null">
+        #{chcLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTel != null">
+        #{chcTel,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDesc != null">
+        #{chcDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateId != null">
+        #{chcCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="chcCreateBy != null">
+        #{chcCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateDate != null">
+        #{chcCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcDueId != null">
+        #{chcDueId,jdbcType=INTEGER},
+      </if>
+      <if test="chcDueTo != null">
+        #{chcDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDueDate != null">
+        #{chcDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcStatus != null">
+        #{chcStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SalCache">
+    update tbl_sal_chance
+    <set>
+      <if test="chcSource != null">
+        chc_source = #{chcSource,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCustName != null">
+        chc_cust_name = #{chcCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTitle != null">
+        chc_title = #{chcTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chcRate != null">
+        chc_rate = #{chcRate,jdbcType=INTEGER},
+      </if>
+      <if test="chcLinkman != null">
+        chc_linkman = #{chcLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="chcTel != null">
+        chc_tel = #{chcTel,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDesc != null">
+        chc_desc = #{chcDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateId != null">
+        chc_create_id = #{chcCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="chcCreateBy != null">
+        chc_create_by = #{chcCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="chcCreateDate != null">
+        chc_create_date = #{chcCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcDueId != null">
+        chc_due_id = #{chcDueId,jdbcType=INTEGER},
+      </if>
+      <if test="chcDueTo != null">
+        chc_due_to = #{chcDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="chcDueDate != null">
+        chc_due_date = #{chcDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chcStatus != null">
+        chc_status = #{chcStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SalCache">
+    update tbl_sal_chance
+    set chc_source = #{chcSource,jdbcType=VARCHAR},
+      chc_cust_name = #{chcCustName,jdbcType=VARCHAR},
+      chc_title = #{chcTitle,jdbcType=VARCHAR},
+      chc_rate = #{chcRate,jdbcType=INTEGER},
+      chc_linkman = #{chcLinkman,jdbcType=VARCHAR},
+      chc_tel = #{chcTel,jdbcType=VARCHAR},
+      chc_desc = #{chcDesc,jdbcType=VARCHAR},
+      chc_create_id = #{chcCreateId,jdbcType=INTEGER},
+      chc_create_by = #{chcCreateBy,jdbcType=VARCHAR},
+      chc_create_date = #{chcCreateDate,jdbcType=TIMESTAMP},
+      chc_due_id = #{chcDueId,jdbcType=INTEGER},
+      chc_due_to = #{chcDueTo,jdbcType=VARCHAR},
+      chc_due_date = #{chcDueDate,jdbcType=TIMESTAMP},
+      chc_status = #{chcStatus,jdbcType=VARCHAR}
+    where chc_id = #{chcId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.SctServiceMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.SctService">
+    <id column="svr_id" jdbcType="INTEGER" property="svrId" />
+    <result column="svr_type" jdbcType="VARCHAR" property="svrType" />
+    <result column="svr_title" jdbcType="VARCHAR" property="svrTitle" />
+    <result column="svr_cust_no" jdbcType="INTEGER" property="svrCustNo" />
+    <result column="svr_cust_name" jdbcType="VARCHAR" property="svrCustName" />
+    <result column="svr_status" jdbcType="VARCHAR" property="svrStatus" />
+    <result column="svr_requrest" jdbcType="VARCHAR" property="svrRequrest" />
+    <result column="svr_create_id" jdbcType="INTEGER" property="svrCreateId" />
+    <result column="svr_create_by" jdbcType="VARCHAR" property="svrCreateBy" />
+    <result column="svr_create_date" jdbcType="TIMESTAMP" property="svrCreateDate" />
+    <result column="svr_due_id" jdbcType="INTEGER" property="svrDueId" />
+    <result column="svr_due_to" jdbcType="VARCHAR" property="svrDueTo" />
+    <result column="svr_due_date" jdbcType="TIMESTAMP" property="svrDueDate" />
+    <result column="svr_deal" jdbcType="VARCHAR" property="svrDeal" />
+    <result column="svr_deal_id" jdbcType="INTEGER" property="svrDealId" />
+    <result column="svr_deal_by" jdbcType="VARCHAR" property="svrDealBy" />
+    <result column="svr_deal_date" jdbcType="TIMESTAMP" property="svrDealDate" />
+    <result column="svr_result" jdbcType="VARCHAR" property="svrResult" />
+    <result column="svr_satisfy" jdbcType="INTEGER" property="svrSatisfy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    svr_id, svr_type, svr_title, svr_cust_no, svr_cust_name, svr_status, svr_requrest, 
+    svr_create_id, svr_create_by, svr_create_date, svr_due_id, svr_due_to, svr_due_date, 
+    svr_deal, svr_deal_id, svr_deal_by, svr_deal_date, svr_result, svr_satisfy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sct_service
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_sct_service
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SctService">
+    insert into tbl_sct_service (svr_id, svr_type, svr_title, 
+      svr_cust_no, svr_cust_name, svr_status, 
+      svr_requrest, svr_create_id, svr_create_by, 
+      svr_create_date, svr_due_id, svr_due_to, 
+      svr_due_date, svr_deal, svr_deal_id, 
+      svr_deal_by, svr_deal_date, svr_result, 
+      svr_satisfy)
+    values (#{svrId,jdbcType=INTEGER}, #{svrType,jdbcType=VARCHAR}, #{svrTitle,jdbcType=VARCHAR}, 
+      #{svrCustNo,jdbcType=INTEGER}, #{svrCustName,jdbcType=VARCHAR}, #{svrStatus,jdbcType=VARCHAR}, 
+      #{svrRequrest,jdbcType=VARCHAR}, #{svrCreateId,jdbcType=INTEGER}, #{svrCreateBy,jdbcType=VARCHAR}, 
+      #{svrCreateDate,jdbcType=TIMESTAMP}, #{svrDueId,jdbcType=INTEGER}, #{svrDueTo,jdbcType=VARCHAR}, 
+      #{svrDueDate,jdbcType=TIMESTAMP}, #{svrDeal,jdbcType=VARCHAR}, #{svrDealId,jdbcType=INTEGER}, 
+      #{svrDealBy,jdbcType=VARCHAR}, #{svrDealDate,jdbcType=TIMESTAMP}, #{svrResult,jdbcType=VARCHAR}, 
+      #{svrSatisfy,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SctService">
+    insert into tbl_sct_service
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="svrId != null">
+        svr_id,
+      </if>
+      <if test="svrType != null">
+        svr_type,
+      </if>
+      <if test="svrTitle != null">
+        svr_title,
+      </if>
+      <if test="svrCustNo != null">
+        svr_cust_no,
+      </if>
+      <if test="svrCustName != null">
+        svr_cust_name,
+      </if>
+      <if test="svrStatus != null">
+        svr_status,
+      </if>
+      <if test="svrRequrest != null">
+        svr_requrest,
+      </if>
+      <if test="svrCreateId != null">
+        svr_create_id,
+      </if>
+      <if test="svrCreateBy != null">
+        svr_create_by,
+      </if>
+      <if test="svrCreateDate != null">
+        svr_create_date,
+      </if>
+      <if test="svrDueId != null">
+        svr_due_id,
+      </if>
+      <if test="svrDueTo != null">
+        svr_due_to,
+      </if>
+      <if test="svrDueDate != null">
+        svr_due_date,
+      </if>
+      <if test="svrDeal != null">
+        svr_deal,
+      </if>
+      <if test="svrDealId != null">
+        svr_deal_id,
+      </if>
+      <if test="svrDealBy != null">
+        svr_deal_by,
+      </if>
+      <if test="svrDealDate != null">
+        svr_deal_date,
+      </if>
+      <if test="svrResult != null">
+        svr_result,
+      </if>
+      <if test="svrSatisfy != null">
+        svr_satisfy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="svrId != null">
+        #{svrId,jdbcType=INTEGER},
+      </if>
+      <if test="svrType != null">
+        #{svrType,jdbcType=VARCHAR},
+      </if>
+      <if test="svrTitle != null">
+        #{svrTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCustNo != null">
+        #{svrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="svrCustName != null">
+        #{svrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="svrStatus != null">
+        #{svrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="svrRequrest != null">
+        #{svrRequrest,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateId != null">
+        #{svrCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="svrCreateBy != null">
+        #{svrCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateDate != null">
+        #{svrCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDueId != null">
+        #{svrDueId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDueTo != null">
+        #{svrDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDueDate != null">
+        #{svrDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDeal != null">
+        #{svrDeal,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealId != null">
+        #{svrDealId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDealBy != null">
+        #{svrDealBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealDate != null">
+        #{svrDealDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrResult != null">
+        #{svrResult,jdbcType=VARCHAR},
+      </if>
+      <if test="svrSatisfy != null">
+        #{svrSatisfy,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SctService">
+    update tbl_sct_service
+    <set>
+      <if test="svrType != null">
+        svr_type = #{svrType,jdbcType=VARCHAR},
+      </if>
+      <if test="svrTitle != null">
+        svr_title = #{svrTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCustNo != null">
+        svr_cust_no = #{svrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="svrCustName != null">
+        svr_cust_name = #{svrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="svrStatus != null">
+        svr_status = #{svrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="svrRequrest != null">
+        svr_requrest = #{svrRequrest,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateId != null">
+        svr_create_id = #{svrCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="svrCreateBy != null">
+        svr_create_by = #{svrCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateDate != null">
+        svr_create_date = #{svrCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDueId != null">
+        svr_due_id = #{svrDueId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDueTo != null">
+        svr_due_to = #{svrDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDueDate != null">
+        svr_due_date = #{svrDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDeal != null">
+        svr_deal = #{svrDeal,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealId != null">
+        svr_deal_id = #{svrDealId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDealBy != null">
+        svr_deal_by = #{svrDealBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealDate != null">
+        svr_deal_date = #{svrDealDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrResult != null">
+        svr_result = #{svrResult,jdbcType=VARCHAR},
+      </if>
+      <if test="svrSatisfy != null">
+        svr_satisfy = #{svrSatisfy,jdbcType=INTEGER},
+      </if>
+    </set>
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SctService">
+    update tbl_sct_service
+    set svr_type = #{svrType,jdbcType=VARCHAR},
+      svr_title = #{svrTitle,jdbcType=VARCHAR},
+      svr_cust_no = #{svrCustNo,jdbcType=INTEGER},
+      svr_cust_name = #{svrCustName,jdbcType=VARCHAR},
+      svr_status = #{svrStatus,jdbcType=VARCHAR},
+      svr_requrest = #{svrRequrest,jdbcType=VARCHAR},
+      svr_create_id = #{svrCreateId,jdbcType=INTEGER},
+      svr_create_by = #{svrCreateBy,jdbcType=VARCHAR},
+      svr_create_date = #{svrCreateDate,jdbcType=TIMESTAMP},
+      svr_due_id = #{svrDueId,jdbcType=INTEGER},
+      svr_due_to = #{svrDueTo,jdbcType=VARCHAR},
+      svr_due_date = #{svrDueDate,jdbcType=TIMESTAMP},
+      svr_deal = #{svrDeal,jdbcType=VARCHAR},
+      svr_deal_id = #{svrDealId,jdbcType=INTEGER},
+      svr_deal_by = #{svrDealBy,jdbcType=VARCHAR},
+      svr_deal_date = #{svrDealDate,jdbcType=TIMESTAMP},
+      svr_result = #{svrResult,jdbcType=VARCHAR},
+      svr_satisfy = #{svrSatisfy,jdbcType=INTEGER}
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.SctService">
+    <id column="svr_id" jdbcType="INTEGER" property="svrId" />
+    <result column="svr_type" jdbcType="VARCHAR" property="svrType" />
+    <result column="svr_title" jdbcType="VARCHAR" property="svrTitle" />
+    <result column="svr_cust_no" jdbcType="INTEGER" property="svrCustNo" />
+    <result column="svr_cust_name" jdbcType="VARCHAR" property="svrCustName" />
+    <result column="svr_status" jdbcType="VARCHAR" property="svrStatus" />
+    <result column="svr_requrest" jdbcType="VARCHAR" property="svrRequrest" />
+    <result column="svr_create_id" jdbcType="INTEGER" property="svrCreateId" />
+    <result column="svr_create_by" jdbcType="VARCHAR" property="svrCreateBy" />
+    <result column="svr_create_date" jdbcType="TIMESTAMP" property="svrCreateDate" />
+    <result column="svr_due_id" jdbcType="INTEGER" property="svrDueId" />
+    <result column="svr_due_to" jdbcType="VARCHAR" property="svrDueTo" />
+    <result column="svr_due_date" jdbcType="TIMESTAMP" property="svrDueDate" />
+    <result column="svr_deal" jdbcType="VARCHAR" property="svrDeal" />
+    <result column="svr_deal_id" jdbcType="INTEGER" property="svrDealId" />
+    <result column="svr_deal_by" jdbcType="VARCHAR" property="svrDealBy" />
+    <result column="svr_deal_date" jdbcType="TIMESTAMP" property="svrDealDate" />
+    <result column="svr_result" jdbcType="VARCHAR" property="svrResult" />
+    <result column="svr_satisfy" jdbcType="INTEGER" property="svrSatisfy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    svr_id, svr_type, svr_title, svr_cust_no, svr_cust_name, svr_status, svr_requrest, 
+    svr_create_id, svr_create_by, svr_create_date, svr_due_id, svr_due_to, svr_due_date, 
+    svr_deal, svr_deal_id, svr_deal_by, svr_deal_date, svr_result, svr_satisfy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sct_service
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_sct_service
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SctService">
+    insert into tbl_sct_service (svr_id, svr_type, svr_title, 
+      svr_cust_no, svr_cust_name, svr_status, 
+      svr_requrest, svr_create_id, svr_create_by, 
+      svr_create_date, svr_due_id, svr_due_to, 
+      svr_due_date, svr_deal, svr_deal_id, 
+      svr_deal_by, svr_deal_date, svr_result, 
+      svr_satisfy)
+    values (#{svrId,jdbcType=INTEGER}, #{svrType,jdbcType=VARCHAR}, #{svrTitle,jdbcType=VARCHAR}, 
+      #{svrCustNo,jdbcType=INTEGER}, #{svrCustName,jdbcType=VARCHAR}, #{svrStatus,jdbcType=VARCHAR}, 
+      #{svrRequrest,jdbcType=VARCHAR}, #{svrCreateId,jdbcType=INTEGER}, #{svrCreateBy,jdbcType=VARCHAR}, 
+      #{svrCreateDate,jdbcType=TIMESTAMP}, #{svrDueId,jdbcType=INTEGER}, #{svrDueTo,jdbcType=VARCHAR}, 
+      #{svrDueDate,jdbcType=TIMESTAMP}, #{svrDeal,jdbcType=VARCHAR}, #{svrDealId,jdbcType=INTEGER}, 
+      #{svrDealBy,jdbcType=VARCHAR}, #{svrDealDate,jdbcType=TIMESTAMP}, #{svrResult,jdbcType=VARCHAR}, 
+      #{svrSatisfy,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SctService">
+    insert into tbl_sct_service
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="svrId != null">
+        svr_id,
+      </if>
+      <if test="svrType != null">
+        svr_type,
+      </if>
+      <if test="svrTitle != null">
+        svr_title,
+      </if>
+      <if test="svrCustNo != null">
+        svr_cust_no,
+      </if>
+      <if test="svrCustName != null">
+        svr_cust_name,
+      </if>
+      <if test="svrStatus != null">
+        svr_status,
+      </if>
+      <if test="svrRequrest != null">
+        svr_requrest,
+      </if>
+      <if test="svrCreateId != null">
+        svr_create_id,
+      </if>
+      <if test="svrCreateBy != null">
+        svr_create_by,
+      </if>
+      <if test="svrCreateDate != null">
+        svr_create_date,
+      </if>
+      <if test="svrDueId != null">
+        svr_due_id,
+      </if>
+      <if test="svrDueTo != null">
+        svr_due_to,
+      </if>
+      <if test="svrDueDate != null">
+        svr_due_date,
+      </if>
+      <if test="svrDeal != null">
+        svr_deal,
+      </if>
+      <if test="svrDealId != null">
+        svr_deal_id,
+      </if>
+      <if test="svrDealBy != null">
+        svr_deal_by,
+      </if>
+      <if test="svrDealDate != null">
+        svr_deal_date,
+      </if>
+      <if test="svrResult != null">
+        svr_result,
+      </if>
+      <if test="svrSatisfy != null">
+        svr_satisfy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="svrId != null">
+        #{svrId,jdbcType=INTEGER},
+      </if>
+      <if test="svrType != null">
+        #{svrType,jdbcType=VARCHAR},
+      </if>
+      <if test="svrTitle != null">
+        #{svrTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCustNo != null">
+        #{svrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="svrCustName != null">
+        #{svrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="svrStatus != null">
+        #{svrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="svrRequrest != null">
+        #{svrRequrest,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateId != null">
+        #{svrCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="svrCreateBy != null">
+        #{svrCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateDate != null">
+        #{svrCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDueId != null">
+        #{svrDueId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDueTo != null">
+        #{svrDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDueDate != null">
+        #{svrDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDeal != null">
+        #{svrDeal,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealId != null">
+        #{svrDealId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDealBy != null">
+        #{svrDealBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealDate != null">
+        #{svrDealDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrResult != null">
+        #{svrResult,jdbcType=VARCHAR},
+      </if>
+      <if test="svrSatisfy != null">
+        #{svrSatisfy,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SctService">
+    update tbl_sct_service
+    <set>
+      <if test="svrType != null">
+        svr_type = #{svrType,jdbcType=VARCHAR},
+      </if>
+      <if test="svrTitle != null">
+        svr_title = #{svrTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCustNo != null">
+        svr_cust_no = #{svrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="svrCustName != null">
+        svr_cust_name = #{svrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="svrStatus != null">
+        svr_status = #{svrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="svrRequrest != null">
+        svr_requrest = #{svrRequrest,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateId != null">
+        svr_create_id = #{svrCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="svrCreateBy != null">
+        svr_create_by = #{svrCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateDate != null">
+        svr_create_date = #{svrCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDueId != null">
+        svr_due_id = #{svrDueId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDueTo != null">
+        svr_due_to = #{svrDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDueDate != null">
+        svr_due_date = #{svrDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDeal != null">
+        svr_deal = #{svrDeal,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealId != null">
+        svr_deal_id = #{svrDealId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDealBy != null">
+        svr_deal_by = #{svrDealBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealDate != null">
+        svr_deal_date = #{svrDealDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrResult != null">
+        svr_result = #{svrResult,jdbcType=VARCHAR},
+      </if>
+      <if test="svrSatisfy != null">
+        svr_satisfy = #{svrSatisfy,jdbcType=INTEGER},
+      </if>
+    </set>
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SctService">
+    update tbl_sct_service
+    set svr_type = #{svrType,jdbcType=VARCHAR},
+      svr_title = #{svrTitle,jdbcType=VARCHAR},
+      svr_cust_no = #{svrCustNo,jdbcType=INTEGER},
+      svr_cust_name = #{svrCustName,jdbcType=VARCHAR},
+      svr_status = #{svrStatus,jdbcType=VARCHAR},
+      svr_requrest = #{svrRequrest,jdbcType=VARCHAR},
+      svr_create_id = #{svrCreateId,jdbcType=INTEGER},
+      svr_create_by = #{svrCreateBy,jdbcType=VARCHAR},
+      svr_create_date = #{svrCreateDate,jdbcType=TIMESTAMP},
+      svr_due_id = #{svrDueId,jdbcType=INTEGER},
+      svr_due_to = #{svrDueTo,jdbcType=VARCHAR},
+      svr_due_date = #{svrDueDate,jdbcType=TIMESTAMP},
+      svr_deal = #{svrDeal,jdbcType=VARCHAR},
+      svr_deal_id = #{svrDealId,jdbcType=INTEGER},
+      svr_deal_by = #{svrDealBy,jdbcType=VARCHAR},
+      svr_deal_date = #{svrDealDate,jdbcType=TIMESTAMP},
+      svr_result = #{svrResult,jdbcType=VARCHAR},
+      svr_satisfy = #{svrSatisfy,jdbcType=INTEGER}
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.SctService">
+    <id column="svr_id" jdbcType="INTEGER" property="svrId" />
+    <result column="svr_type" jdbcType="VARCHAR" property="svrType" />
+    <result column="svr_title" jdbcType="VARCHAR" property="svrTitle" />
+    <result column="svr_cust_no" jdbcType="INTEGER" property="svrCustNo" />
+    <result column="svr_cust_name" jdbcType="VARCHAR" property="svrCustName" />
+    <result column="svr_status" jdbcType="VARCHAR" property="svrStatus" />
+    <result column="svr_requrest" jdbcType="VARCHAR" property="svrRequrest" />
+    <result column="svr_create_id" jdbcType="INTEGER" property="svrCreateId" />
+    <result column="svr_create_by" jdbcType="VARCHAR" property="svrCreateBy" />
+    <result column="svr_create_date" jdbcType="TIMESTAMP" property="svrCreateDate" />
+    <result column="svr_due_id" jdbcType="INTEGER" property="svrDueId" />
+    <result column="svr_due_to" jdbcType="VARCHAR" property="svrDueTo" />
+    <result column="svr_due_date" jdbcType="TIMESTAMP" property="svrDueDate" />
+    <result column="svr_deal" jdbcType="VARCHAR" property="svrDeal" />
+    <result column="svr_deal_id" jdbcType="INTEGER" property="svrDealId" />
+    <result column="svr_deal_by" jdbcType="VARCHAR" property="svrDealBy" />
+    <result column="svr_deal_date" jdbcType="TIMESTAMP" property="svrDealDate" />
+    <result column="svr_result" jdbcType="VARCHAR" property="svrResult" />
+    <result column="svr_satisfy" jdbcType="INTEGER" property="svrSatisfy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    svr_id, svr_type, svr_title, svr_cust_no, svr_cust_name, svr_status, svr_requrest, 
+    svr_create_id, svr_create_by, svr_create_date, svr_due_id, svr_due_to, svr_due_date, 
+    svr_deal, svr_deal_id, svr_deal_by, svr_deal_date, svr_result, svr_satisfy
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sct_service
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_sct_service
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SctService">
+    insert into tbl_sct_service (svr_id, svr_type, svr_title, 
+      svr_cust_no, svr_cust_name, svr_status, 
+      svr_requrest, svr_create_id, svr_create_by, 
+      svr_create_date, svr_due_id, svr_due_to, 
+      svr_due_date, svr_deal, svr_deal_id, 
+      svr_deal_by, svr_deal_date, svr_result, 
+      svr_satisfy)
+    values (#{svrId,jdbcType=INTEGER}, #{svrType,jdbcType=VARCHAR}, #{svrTitle,jdbcType=VARCHAR}, 
+      #{svrCustNo,jdbcType=INTEGER}, #{svrCustName,jdbcType=VARCHAR}, #{svrStatus,jdbcType=VARCHAR}, 
+      #{svrRequrest,jdbcType=VARCHAR}, #{svrCreateId,jdbcType=INTEGER}, #{svrCreateBy,jdbcType=VARCHAR}, 
+      #{svrCreateDate,jdbcType=TIMESTAMP}, #{svrDueId,jdbcType=INTEGER}, #{svrDueTo,jdbcType=VARCHAR}, 
+      #{svrDueDate,jdbcType=TIMESTAMP}, #{svrDeal,jdbcType=VARCHAR}, #{svrDealId,jdbcType=INTEGER}, 
+      #{svrDealBy,jdbcType=VARCHAR}, #{svrDealDate,jdbcType=TIMESTAMP}, #{svrResult,jdbcType=VARCHAR}, 
+      #{svrSatisfy,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SctService">
+    insert into tbl_sct_service
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="svrId != null">
+        svr_id,
+      </if>
+      <if test="svrType != null">
+        svr_type,
+      </if>
+      <if test="svrTitle != null">
+        svr_title,
+      </if>
+      <if test="svrCustNo != null">
+        svr_cust_no,
+      </if>
+      <if test="svrCustName != null">
+        svr_cust_name,
+      </if>
+      <if test="svrStatus != null">
+        svr_status,
+      </if>
+      <if test="svrRequrest != null">
+        svr_requrest,
+      </if>
+      <if test="svrCreateId != null">
+        svr_create_id,
+      </if>
+      <if test="svrCreateBy != null">
+        svr_create_by,
+      </if>
+      <if test="svrCreateDate != null">
+        svr_create_date,
+      </if>
+      <if test="svrDueId != null">
+        svr_due_id,
+      </if>
+      <if test="svrDueTo != null">
+        svr_due_to,
+      </if>
+      <if test="svrDueDate != null">
+        svr_due_date,
+      </if>
+      <if test="svrDeal != null">
+        svr_deal,
+      </if>
+      <if test="svrDealId != null">
+        svr_deal_id,
+      </if>
+      <if test="svrDealBy != null">
+        svr_deal_by,
+      </if>
+      <if test="svrDealDate != null">
+        svr_deal_date,
+      </if>
+      <if test="svrResult != null">
+        svr_result,
+      </if>
+      <if test="svrSatisfy != null">
+        svr_satisfy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="svrId != null">
+        #{svrId,jdbcType=INTEGER},
+      </if>
+      <if test="svrType != null">
+        #{svrType,jdbcType=VARCHAR},
+      </if>
+      <if test="svrTitle != null">
+        #{svrTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCustNo != null">
+        #{svrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="svrCustName != null">
+        #{svrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="svrStatus != null">
+        #{svrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="svrRequrest != null">
+        #{svrRequrest,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateId != null">
+        #{svrCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="svrCreateBy != null">
+        #{svrCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateDate != null">
+        #{svrCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDueId != null">
+        #{svrDueId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDueTo != null">
+        #{svrDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDueDate != null">
+        #{svrDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDeal != null">
+        #{svrDeal,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealId != null">
+        #{svrDealId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDealBy != null">
+        #{svrDealBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealDate != null">
+        #{svrDealDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrResult != null">
+        #{svrResult,jdbcType=VARCHAR},
+      </if>
+      <if test="svrSatisfy != null">
+        #{svrSatisfy,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SctService">
+    update tbl_sct_service
+    <set>
+      <if test="svrType != null">
+        svr_type = #{svrType,jdbcType=VARCHAR},
+      </if>
+      <if test="svrTitle != null">
+        svr_title = #{svrTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCustNo != null">
+        svr_cust_no = #{svrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="svrCustName != null">
+        svr_cust_name = #{svrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="svrStatus != null">
+        svr_status = #{svrStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="svrRequrest != null">
+        svr_requrest = #{svrRequrest,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateId != null">
+        svr_create_id = #{svrCreateId,jdbcType=INTEGER},
+      </if>
+      <if test="svrCreateBy != null">
+        svr_create_by = #{svrCreateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrCreateDate != null">
+        svr_create_date = #{svrCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDueId != null">
+        svr_due_id = #{svrDueId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDueTo != null">
+        svr_due_to = #{svrDueTo,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDueDate != null">
+        svr_due_date = #{svrDueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrDeal != null">
+        svr_deal = #{svrDeal,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealId != null">
+        svr_deal_id = #{svrDealId,jdbcType=INTEGER},
+      </if>
+      <if test="svrDealBy != null">
+        svr_deal_by = #{svrDealBy,jdbcType=VARCHAR},
+      </if>
+      <if test="svrDealDate != null">
+        svr_deal_date = #{svrDealDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrResult != null">
+        svr_result = #{svrResult,jdbcType=VARCHAR},
+      </if>
+      <if test="svrSatisfy != null">
+        svr_satisfy = #{svrSatisfy,jdbcType=INTEGER},
+      </if>
+    </set>
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SctService">
+    update tbl_sct_service
+    set svr_type = #{svrType,jdbcType=VARCHAR},
+      svr_title = #{svrTitle,jdbcType=VARCHAR},
+      svr_cust_no = #{svrCustNo,jdbcType=INTEGER},
+      svr_cust_name = #{svrCustName,jdbcType=VARCHAR},
+      svr_status = #{svrStatus,jdbcType=VARCHAR},
+      svr_requrest = #{svrRequrest,jdbcType=VARCHAR},
+      svr_create_id = #{svrCreateId,jdbcType=INTEGER},
+      svr_create_by = #{svrCreateBy,jdbcType=VARCHAR},
+      svr_create_date = #{svrCreateDate,jdbcType=TIMESTAMP},
+      svr_due_id = #{svrDueId,jdbcType=INTEGER},
+      svr_due_to = #{svrDueTo,jdbcType=VARCHAR},
+      svr_due_date = #{svrDueDate,jdbcType=TIMESTAMP},
+      svr_deal = #{svrDeal,jdbcType=VARCHAR},
+      svr_deal_id = #{svrDealId,jdbcType=INTEGER},
+      svr_deal_by = #{svrDealBy,jdbcType=VARCHAR},
+      svr_deal_date = #{svrDealDate,jdbcType=TIMESTAMP},
+      svr_result = #{svrResult,jdbcType=VARCHAR},
+      svr_satisfy = #{svrSatisfy,jdbcType=INTEGER}
+    where svr_id = #{svrId,jdbcType=INTEGER}
+  </update>
+</mapper>

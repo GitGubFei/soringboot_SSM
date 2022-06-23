@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/Crm_login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+    <div class="crm_big_main">
+        <div class="crm_main">
+            <div class="crm_main_head">
+                <h2>
+                    新闻网</h2>
+            </div>
+            <div class="crm_main_body text-center">
+                <form action=""  method="post" id="myform">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="用户名" value="">
+                    <input type="password" class="form-control" id="userpassword" name="userpassword" placeholder="密码" value="">
+                    <div>
+                        <input type="text" class="form-control" style="display: inline-block;width: 162px;" id="uservote" placeholder="验证码" name="uservote">
+                        <img src="getVerify?r=1212089333" id="imgvote" alt="验证码" title="看不清？点此更换" style="cursor: pointer;">
+                    </div>
+                    <input type="submit" value="登录" class="btn btn-primary form-control" />
+                    <br />
+                    <a href="userregeist.php">注册新用户</a>
+                    <p class="text-center"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: #f8f8f84d;background-color: rgba(255,255,255,0.3);">
+    <div style="margin: 0px auto; width: 500px; height: 50px; line-height: 50px; text-align: center;
+      color: #686868">
+        Copyright © 2021 任傲飞 Powered by PHP 7.4.18</div>
+</nav>
+</body>
+<script type="text/javascript">
+    document.getElementById("myform").onsubmit=function(event) {
+        /* Act on the event */
+        if(document.getElementById("username").value.trim()<=0 || document.getElementById("userpassword").value.trim()<=0 ){alert("用户名或密码为空");return false;};
+    }; document.getElementById("imgvote").onclick = function(obj){
+            obj.src = "/getVerify?"+Math.random();
+        document.getElementById("imgvote").src = "/getVerify?r=" + Math.random();
+        }
+</script>
+</html>

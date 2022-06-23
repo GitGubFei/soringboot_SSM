@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.CstactityMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.Cstactity">
+    <id column="atv_id" jdbcType="INTEGER" property="atvId" />
+    <result column="atv_cust_no" jdbcType="INTEGER" property="atvCustNo" />
+    <result column="atv_date" jdbcType="TIMESTAMP" property="atvDate" />
+    <result column="atv_place" jdbcType="VARCHAR" property="atvPlace" />
+    <result column="atv_title" jdbcType="VARCHAR" property="atvTitle" />
+    <result column="atv_desc" jdbcType="VARCHAR" property="atvDesc" />
+    <result column="atv_mark" jdbcType="VARCHAR" property="atvMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    atv_id, atv_cust_no, atv_date, atv_place, atv_title, atv_desc, atv_mark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_cstactity
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_cstactity
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Cstactity">
+    insert into tbl_cstactity (atv_id, atv_cust_no, atv_date, 
+      atv_place, atv_title, atv_desc, 
+      atv_mark)
+    values (#{atvId,jdbcType=INTEGER}, #{atvCustNo,jdbcType=INTEGER}, #{atvDate,jdbcType=TIMESTAMP}, 
+      #{atvPlace,jdbcType=VARCHAR}, #{atvTitle,jdbcType=VARCHAR}, #{atvDesc,jdbcType=VARCHAR}, 
+      #{atvMark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Cstactity">
+    insert into tbl_cstactity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="atvId != null">
+        atv_id,
+      </if>
+      <if test="atvCustNo != null">
+        atv_cust_no,
+      </if>
+      <if test="atvDate != null">
+        atv_date,
+      </if>
+      <if test="atvPlace != null">
+        atv_place,
+      </if>
+      <if test="atvTitle != null">
+        atv_title,
+      </if>
+      <if test="atvDesc != null">
+        atv_desc,
+      </if>
+      <if test="atvMark != null">
+        atv_mark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="atvId != null">
+        #{atvId,jdbcType=INTEGER},
+      </if>
+      <if test="atvCustNo != null">
+        #{atvCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="atvDate != null">
+        #{atvDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="atvPlace != null">
+        #{atvPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="atvTitle != null">
+        #{atvTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="atvDesc != null">
+        #{atvDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="atvMark != null">
+        #{atvMark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Cstactity">
+    update tbl_cstactity
+    <set>
+      <if test="atvCustNo != null">
+        atv_cust_no = #{atvCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="atvDate != null">
+        atv_date = #{atvDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="atvPlace != null">
+        atv_place = #{atvPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="atvTitle != null">
+        atv_title = #{atvTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="atvDesc != null">
+        atv_desc = #{atvDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="atvMark != null">
+        atv_mark = #{atvMark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Cstactity">
+    update tbl_cstactity
+    set atv_cust_no = #{atvCustNo,jdbcType=INTEGER},
+      atv_date = #{atvDate,jdbcType=TIMESTAMP},
+      atv_place = #{atvPlace,jdbcType=VARCHAR},
+      atv_title = #{atvTitle,jdbcType=VARCHAR},
+      atv_desc = #{atvDesc,jdbcType=VARCHAR},
+      atv_mark = #{atvMark,jdbcType=VARCHAR}
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.Cstactity">
+    <id column="atv_id" jdbcType="INTEGER" property="atvId" />
+    <result column="atv_cust_no" jdbcType="INTEGER" property="atvCustNo" />
+    <result column="atv_date" jdbcType="TIMESTAMP" property="atvDate" />
+    <result column="atv_place" jdbcType="VARCHAR" property="atvPlace" />
+    <result column="atv_title" jdbcType="VARCHAR" property="atvTitle" />
+    <result column="atv_desc" jdbcType="VARCHAR" property="atvDesc" />
+    <result column="atv_mark" jdbcType="VARCHAR" property="atvMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    atv_id, atv_cust_no, atv_date, atv_place, atv_title, atv_desc, atv_mark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_cstactity
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_cstactity
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Cstactity">
+    insert into tbl_cstactity (atv_id, atv_cust_no, atv_date, 
+      atv_place, atv_title, atv_desc, 
+      atv_mark)
+    values (#{atvId,jdbcType=INTEGER}, #{atvCustNo,jdbcType=INTEGER}, #{atvDate,jdbcType=TIMESTAMP}, 
+      #{atvPlace,jdbcType=VARCHAR}, #{atvTitle,jdbcType=VARCHAR}, #{atvDesc,jdbcType=VARCHAR}, 
+      #{atvMark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Cstactity">
+    insert into tbl_cstactity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="atvId != null">
+        atv_id,
+      </if>
+      <if test="atvCustNo != null">
+        atv_cust_no,
+      </if>
+      <if test="atvDate != null">
+        atv_date,
+      </if>
+      <if test="atvPlace != null">
+        atv_place,
+      </if>
+      <if test="atvTitle != null">
+        atv_title,
+      </if>
+      <if test="atvDesc != null">
+        atv_desc,
+      </if>
+      <if test="atvMark != null">
+        atv_mark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="atvId != null">
+        #{atvId,jdbcType=INTEGER},
+      </if>
+      <if test="atvCustNo != null">
+        #{atvCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="atvDate != null">
+        #{atvDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="atvPlace != null">
+        #{atvPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="atvTitle != null">
+        #{atvTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="atvDesc != null">
+        #{atvDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="atvMark != null">
+        #{atvMark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Cstactity">
+    update tbl_cstactity
+    <set>
+      <if test="atvCustNo != null">
+        atv_cust_no = #{atvCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="atvDate != null">
+        atv_date = #{atvDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="atvPlace != null">
+        atv_place = #{atvPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="atvTitle != null">
+        atv_title = #{atvTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="atvDesc != null">
+        atv_desc = #{atvDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="atvMark != null">
+        atv_mark = #{atvMark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Cstactity">
+    update tbl_cstactity
+    set atv_cust_no = #{atvCustNo,jdbcType=INTEGER},
+      atv_date = #{atvDate,jdbcType=TIMESTAMP},
+      atv_place = #{atvPlace,jdbcType=VARCHAR},
+      atv_title = #{atvTitle,jdbcType=VARCHAR},
+      atv_desc = #{atvDesc,jdbcType=VARCHAR},
+      atv_mark = #{atvMark,jdbcType=VARCHAR}
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.Cstactity">
+    <id column="atv_id" jdbcType="INTEGER" property="atvId" />
+    <result column="atv_cust_no" jdbcType="INTEGER" property="atvCustNo" />
+    <result column="atv_date" jdbcType="TIMESTAMP" property="atvDate" />
+    <result column="atv_place" jdbcType="VARCHAR" property="atvPlace" />
+    <result column="atv_title" jdbcType="VARCHAR" property="atvTitle" />
+    <result column="atv_desc" jdbcType="VARCHAR" property="atvDesc" />
+    <result column="atv_mark" jdbcType="VARCHAR" property="atvMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    atv_id, atv_cust_no, atv_date, atv_place, atv_title, atv_desc, atv_mark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_cstactity
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_cstactity
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Cstactity">
+    insert into tbl_cstactity (atv_id, atv_cust_no, atv_date, 
+      atv_place, atv_title, atv_desc, 
+      atv_mark)
+    values (#{atvId,jdbcType=INTEGER}, #{atvCustNo,jdbcType=INTEGER}, #{atvDate,jdbcType=TIMESTAMP}, 
+      #{atvPlace,jdbcType=VARCHAR}, #{atvTitle,jdbcType=VARCHAR}, #{atvDesc,jdbcType=VARCHAR}, 
+      #{atvMark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Cstactity">
+    insert into tbl_cstactity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="atvId != null">
+        atv_id,
+      </if>
+      <if test="atvCustNo != null">
+        atv_cust_no,
+      </if>
+      <if test="atvDate != null">
+        atv_date,
+      </if>
+      <if test="atvPlace != null">
+        atv_place,
+      </if>
+      <if test="atvTitle != null">
+        atv_title,
+      </if>
+      <if test="atvDesc != null">
+        atv_desc,
+      </if>
+      <if test="atvMark != null">
+        atv_mark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="atvId != null">
+        #{atvId,jdbcType=INTEGER},
+      </if>
+      <if test="atvCustNo != null">
+        #{atvCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="atvDate != null">
+        #{atvDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="atvPlace != null">
+        #{atvPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="atvTitle != null">
+        #{atvTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="atvDesc != null">
+        #{atvDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="atvMark != null">
+        #{atvMark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Cstactity">
+    update tbl_cstactity
+    <set>
+      <if test="atvCustNo != null">
+        atv_cust_no = #{atvCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="atvDate != null">
+        atv_date = #{atvDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="atvPlace != null">
+        atv_place = #{atvPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="atvTitle != null">
+        atv_title = #{atvTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="atvDesc != null">
+        atv_desc = #{atvDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="atvMark != null">
+        atv_mark = #{atvMark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Cstactity">
+    update tbl_cstactity
+    set atv_cust_no = #{atvCustNo,jdbcType=INTEGER},
+      atv_date = #{atvDate,jdbcType=TIMESTAMP},
+      atv_place = #{atvPlace,jdbcType=VARCHAR},
+      atv_title = #{atvTitle,jdbcType=VARCHAR},
+      atv_desc = #{atvDesc,jdbcType=VARCHAR},
+      atv_mark = #{atvMark,jdbcType=VARCHAR}
+    where atv_id = #{atvId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="../css/Crm_login.css" rel="stylesheet" type="text/css" />
+  <script src="../js/axios-0.18.0.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+  <div class="crm_big_main">
+    <div class="crm_main">
+      <div class="crm_main_head">
+        <h2>
+          新闻管理系统</h2>
+      </div>
+      <div class="crm_main_body text-center">
+        <form action="/user/login"  method="post" id="myform">
+          <input type="text" class="form-control" id="userName" name="userName" placeholder="用户名" value="">
+          <input type="password" class="form-control" id="userPwd" name="userPwd" placeholder="密码" value="">
+          <input type="submit" value="登录" class="btn btn-primary form-control" />
+          <br />
+          <br />
+          <p class="text-center"></p>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: #f8f8f84d">
+  <div style="margin: 0px auto; width: 500px; height: 50px; line-height: 50px; text-align: center;
+        color: #686868">
+    Copyright © 2021 任傲飞 Powered by PHP 7.4.18</div>
+</nav>
+</body>
+<script type="text/javascript">
+  document.getElementById("myform").onsubmit=function(event) {
+    /* Act on the event */
+    if(document.getElementById("userName").value.trim()<=0 || document.getElementById("userPwd").value.trim()<=0 ){alert("用户名或密码为空");return false;}
+    let obj={userName:document.getElementById("userName").value.trim(),
+      userPwd:document.getElementById("userPwd").value.trim()
+    }
+      axios.post("/user/login",obj).then((res)=>{
+        console.log(res.data.flag);
+        if (res.data.flag)window.location.href="/admin/index.html";else alert("用户名或密码错误");
+      })
+
+      return false;
+
+
+  };
+</script>
+</html>

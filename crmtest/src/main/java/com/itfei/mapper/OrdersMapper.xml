@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.OrdersMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.Orders">
+    <id column="odr_id" jdbcType="INTEGER" property="odrId" />
+    <result column="odr_cust_no" jdbcType="INTEGER" property="odrCustNo" />
+    <result column="odr_cust_name" jdbcType="VARCHAR" property="odrCustName" />
+    <result column="odr_date" jdbcType="TIMESTAMP" property="odrDate" />
+    <result column="odr_addr" jdbcType="VARCHAR" property="odrAddr" />
+    <result column="odr_status" jdbcType="VARCHAR" property="odrStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    odr_id, odr_cust_no, odr_cust_name, odr_date, odr_addr, odr_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_orders
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_orders
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Orders">
+    insert into tbl_orders (odr_id, odr_cust_no, odr_cust_name, 
+      odr_date, odr_addr, odr_status
+      )
+    values (#{odrId,jdbcType=INTEGER}, #{odrCustNo,jdbcType=INTEGER}, #{odrCustName,jdbcType=VARCHAR}, 
+      #{odrDate,jdbcType=TIMESTAMP}, #{odrAddr,jdbcType=VARCHAR}, #{odrStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Orders">
+    insert into tbl_orders
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="odrId != null">
+        odr_id,
+      </if>
+      <if test="odrCustNo != null">
+        odr_cust_no,
+      </if>
+      <if test="odrCustName != null">
+        odr_cust_name,
+      </if>
+      <if test="odrDate != null">
+        odr_date,
+      </if>
+      <if test="odrAddr != null">
+        odr_addr,
+      </if>
+      <if test="odrStatus != null">
+        odr_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="odrId != null">
+        #{odrId,jdbcType=INTEGER},
+      </if>
+      <if test="odrCustNo != null">
+        #{odrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="odrCustName != null">
+        #{odrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="odrDate != null">
+        #{odrDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="odrAddr != null">
+        #{odrAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="odrStatus != null">
+        #{odrStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Orders">
+    update tbl_orders
+    <set>
+      <if test="odrCustNo != null">
+        odr_cust_no = #{odrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="odrCustName != null">
+        odr_cust_name = #{odrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="odrDate != null">
+        odr_date = #{odrDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="odrAddr != null">
+        odr_addr = #{odrAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="odrStatus != null">
+        odr_status = #{odrStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Orders">
+    update tbl_orders
+    set odr_cust_no = #{odrCustNo,jdbcType=INTEGER},
+      odr_cust_name = #{odrCustName,jdbcType=VARCHAR},
+      odr_date = #{odrDate,jdbcType=TIMESTAMP},
+      odr_addr = #{odrAddr,jdbcType=VARCHAR},
+      odr_status = #{odrStatus,jdbcType=VARCHAR}
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.Orders">
+    <id column="odr_id" jdbcType="INTEGER" property="odrId" />
+    <result column="odr_cust_no" jdbcType="INTEGER" property="odrCustNo" />
+    <result column="odr_cust_name" jdbcType="VARCHAR" property="odrCustName" />
+    <result column="odr_date" jdbcType="TIMESTAMP" property="odrDate" />
+    <result column="odr_addr" jdbcType="VARCHAR" property="odrAddr" />
+    <result column="odr_status" jdbcType="VARCHAR" property="odrStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    odr_id, odr_cust_no, odr_cust_name, odr_date, odr_addr, odr_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_orders
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_orders
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Orders">
+    insert into tbl_orders (odr_id, odr_cust_no, odr_cust_name, 
+      odr_date, odr_addr, odr_status
+      )
+    values (#{odrId,jdbcType=INTEGER}, #{odrCustNo,jdbcType=INTEGER}, #{odrCustName,jdbcType=VARCHAR}, 
+      #{odrDate,jdbcType=TIMESTAMP}, #{odrAddr,jdbcType=VARCHAR}, #{odrStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Orders">
+    insert into tbl_orders
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="odrId != null">
+        odr_id,
+      </if>
+      <if test="odrCustNo != null">
+        odr_cust_no,
+      </if>
+      <if test="odrCustName != null">
+        odr_cust_name,
+      </if>
+      <if test="odrDate != null">
+        odr_date,
+      </if>
+      <if test="odrAddr != null">
+        odr_addr,
+      </if>
+      <if test="odrStatus != null">
+        odr_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="odrId != null">
+        #{odrId,jdbcType=INTEGER},
+      </if>
+      <if test="odrCustNo != null">
+        #{odrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="odrCustName != null">
+        #{odrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="odrDate != null">
+        #{odrDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="odrAddr != null">
+        #{odrAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="odrStatus != null">
+        #{odrStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Orders">
+    update tbl_orders
+    <set>
+      <if test="odrCustNo != null">
+        odr_cust_no = #{odrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="odrCustName != null">
+        odr_cust_name = #{odrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="odrDate != null">
+        odr_date = #{odrDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="odrAddr != null">
+        odr_addr = #{odrAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="odrStatus != null">
+        odr_status = #{odrStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Orders">
+    update tbl_orders
+    set odr_cust_no = #{odrCustNo,jdbcType=INTEGER},
+      odr_cust_name = #{odrCustName,jdbcType=VARCHAR},
+      odr_date = #{odrDate,jdbcType=TIMESTAMP},
+      odr_addr = #{odrAddr,jdbcType=VARCHAR},
+      odr_status = #{odrStatus,jdbcType=VARCHAR}
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.Orders">
+    <id column="odr_id" jdbcType="INTEGER" property="odrId" />
+    <result column="odr_cust_no" jdbcType="INTEGER" property="odrCustNo" />
+    <result column="odr_cust_name" jdbcType="VARCHAR" property="odrCustName" />
+    <result column="odr_date" jdbcType="TIMESTAMP" property="odrDate" />
+    <result column="odr_addr" jdbcType="VARCHAR" property="odrAddr" />
+    <result column="odr_status" jdbcType="VARCHAR" property="odrStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    odr_id, odr_cust_no, odr_cust_name, odr_date, odr_addr, odr_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_orders
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_orders
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Orders">
+    insert into tbl_orders (odr_id, odr_cust_no, odr_cust_name, 
+      odr_date, odr_addr, odr_status
+      )
+    values (#{odrId,jdbcType=INTEGER}, #{odrCustNo,jdbcType=INTEGER}, #{odrCustName,jdbcType=VARCHAR}, 
+      #{odrDate,jdbcType=TIMESTAMP}, #{odrAddr,jdbcType=VARCHAR}, #{odrStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Orders">
+    insert into tbl_orders
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="odrId != null">
+        odr_id,
+      </if>
+      <if test="odrCustNo != null">
+        odr_cust_no,
+      </if>
+      <if test="odrCustName != null">
+        odr_cust_name,
+      </if>
+      <if test="odrDate != null">
+        odr_date,
+      </if>
+      <if test="odrAddr != null">
+        odr_addr,
+      </if>
+      <if test="odrStatus != null">
+        odr_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="odrId != null">
+        #{odrId,jdbcType=INTEGER},
+      </if>
+      <if test="odrCustNo != null">
+        #{odrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="odrCustName != null">
+        #{odrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="odrDate != null">
+        #{odrDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="odrAddr != null">
+        #{odrAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="odrStatus != null">
+        #{odrStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Orders">
+    update tbl_orders
+    <set>
+      <if test="odrCustNo != null">
+        odr_cust_no = #{odrCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="odrCustName != null">
+        odr_cust_name = #{odrCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="odrDate != null">
+        odr_date = #{odrDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="odrAddr != null">
+        odr_addr = #{odrAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="odrStatus != null">
+        odr_status = #{odrStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Orders">
+    update tbl_orders
+    set odr_cust_no = #{odrCustNo,jdbcType=INTEGER},
+      odr_cust_name = #{odrCustName,jdbcType=VARCHAR},
+      odr_date = #{odrDate,jdbcType=TIMESTAMP},
+      odr_addr = #{odrAddr,jdbcType=VARCHAR},
+      odr_status = #{odrStatus,jdbcType=VARCHAR}
+    where odr_id = #{odrId,jdbcType=INTEGER}
+  </update>
+</mapper>

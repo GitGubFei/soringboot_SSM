@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.LinkManMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.LinkMan">
+    <id column="lkm_id" jdbcType="INTEGER" property="lkmId" />
+    <result column="lkm_cust_no" jdbcType="INTEGER" property="lkmCustNo" />
+    <result column="lkm_cust_name" jdbcType="VARCHAR" property="lkmCustName" />
+    <result column="lkm_name" jdbcType="VARCHAR" property="lkmName" />
+    <result column="lkm_gender" jdbcType="VARCHAR" property="lkmGender" />
+    <result column="lkm_postion" jdbcType="VARCHAR" property="lkmPostion" />
+    <result column="lkm_tel" jdbcType="VARCHAR" property="lkmTel" />
+    <result column="lkm_mobile" jdbcType="VARCHAR" property="lkmMobile" />
+    <result column="lkm_memo" jdbcType="VARCHAR" property="lkmMemo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    lkm_id, lkm_cust_no, lkm_cust_name, lkm_name, lkm_gender, lkm_postion, lkm_tel, lkm_mobile, 
+    lkm_memo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_linkman
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_linkman
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.LinkMan">
+    insert into tbl_linkman (lkm_id, lkm_cust_no, lkm_cust_name, 
+      lkm_name, lkm_gender, lkm_postion, 
+      lkm_tel, lkm_mobile, lkm_memo
+      )
+    values (#{lkmId,jdbcType=INTEGER}, #{lkmCustNo,jdbcType=INTEGER}, #{lkmCustName,jdbcType=VARCHAR}, 
+      #{lkmName,jdbcType=VARCHAR}, #{lkmGender,jdbcType=VARCHAR}, #{lkmPostion,jdbcType=VARCHAR}, 
+      #{lkmTel,jdbcType=VARCHAR}, #{lkmMobile,jdbcType=VARCHAR}, #{lkmMemo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.LinkMan">
+    insert into tbl_linkman
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lkmId != null">
+        lkm_id,
+      </if>
+      <if test="lkmCustNo != null">
+        lkm_cust_no,
+      </if>
+      <if test="lkmCustName != null">
+        lkm_cust_name,
+      </if>
+      <if test="lkmName != null">
+        lkm_name,
+      </if>
+      <if test="lkmGender != null">
+        lkm_gender,
+      </if>
+      <if test="lkmPostion != null">
+        lkm_postion,
+      </if>
+      <if test="lkmTel != null">
+        lkm_tel,
+      </if>
+      <if test="lkmMobile != null">
+        lkm_mobile,
+      </if>
+      <if test="lkmMemo != null">
+        lkm_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lkmId != null">
+        #{lkmId,jdbcType=INTEGER},
+      </if>
+      <if test="lkmCustNo != null">
+        #{lkmCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lkmCustName != null">
+        #{lkmCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmName != null">
+        #{lkmName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmGender != null">
+        #{lkmGender,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmPostion != null">
+        #{lkmPostion,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmTel != null">
+        #{lkmTel,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMobile != null">
+        #{lkmMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMemo != null">
+        #{lkmMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.LinkMan">
+    update tbl_linkman
+    <set>
+      <if test="lkmCustNo != null">
+        lkm_cust_no = #{lkmCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lkmCustName != null">
+        lkm_cust_name = #{lkmCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmName != null">
+        lkm_name = #{lkmName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmGender != null">
+        lkm_gender = #{lkmGender,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmPostion != null">
+        lkm_postion = #{lkmPostion,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmTel != null">
+        lkm_tel = #{lkmTel,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMobile != null">
+        lkm_mobile = #{lkmMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMemo != null">
+        lkm_memo = #{lkmMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.LinkMan">
+    update tbl_linkman
+    set lkm_cust_no = #{lkmCustNo,jdbcType=INTEGER},
+      lkm_cust_name = #{lkmCustName,jdbcType=VARCHAR},
+      lkm_name = #{lkmName,jdbcType=VARCHAR},
+      lkm_gender = #{lkmGender,jdbcType=VARCHAR},
+      lkm_postion = #{lkmPostion,jdbcType=VARCHAR},
+      lkm_tel = #{lkmTel,jdbcType=VARCHAR},
+      lkm_mobile = #{lkmMobile,jdbcType=VARCHAR},
+      lkm_memo = #{lkmMemo,jdbcType=VARCHAR}
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.LinkMan">
+    <id column="lkm_id" jdbcType="INTEGER" property="lkmId" />
+    <result column="lkm_cust_no" jdbcType="INTEGER" property="lkmCustNo" />
+    <result column="lkm_cust_name" jdbcType="VARCHAR" property="lkmCustName" />
+    <result column="lkm_name" jdbcType="VARCHAR" property="lkmName" />
+    <result column="lkm_gender" jdbcType="VARCHAR" property="lkmGender" />
+    <result column="lkm_postion" jdbcType="VARCHAR" property="lkmPostion" />
+    <result column="lkm_tel" jdbcType="VARCHAR" property="lkmTel" />
+    <result column="lkm_mobile" jdbcType="VARCHAR" property="lkmMobile" />
+    <result column="lkm_memo" jdbcType="VARCHAR" property="lkmMemo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    lkm_id, lkm_cust_no, lkm_cust_name, lkm_name, lkm_gender, lkm_postion, lkm_tel, lkm_mobile, 
+    lkm_memo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_linkman
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_linkman
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.LinkMan">
+    insert into tbl_linkman (lkm_id, lkm_cust_no, lkm_cust_name, 
+      lkm_name, lkm_gender, lkm_postion, 
+      lkm_tel, lkm_mobile, lkm_memo
+      )
+    values (#{lkmId,jdbcType=INTEGER}, #{lkmCustNo,jdbcType=INTEGER}, #{lkmCustName,jdbcType=VARCHAR}, 
+      #{lkmName,jdbcType=VARCHAR}, #{lkmGender,jdbcType=VARCHAR}, #{lkmPostion,jdbcType=VARCHAR}, 
+      #{lkmTel,jdbcType=VARCHAR}, #{lkmMobile,jdbcType=VARCHAR}, #{lkmMemo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.LinkMan">
+    insert into tbl_linkman
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lkmId != null">
+        lkm_id,
+      </if>
+      <if test="lkmCustNo != null">
+        lkm_cust_no,
+      </if>
+      <if test="lkmCustName != null">
+        lkm_cust_name,
+      </if>
+      <if test="lkmName != null">
+        lkm_name,
+      </if>
+      <if test="lkmGender != null">
+        lkm_gender,
+      </if>
+      <if test="lkmPostion != null">
+        lkm_postion,
+      </if>
+      <if test="lkmTel != null">
+        lkm_tel,
+      </if>
+      <if test="lkmMobile != null">
+        lkm_mobile,
+      </if>
+      <if test="lkmMemo != null">
+        lkm_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lkmId != null">
+        #{lkmId,jdbcType=INTEGER},
+      </if>
+      <if test="lkmCustNo != null">
+        #{lkmCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lkmCustName != null">
+        #{lkmCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmName != null">
+        #{lkmName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmGender != null">
+        #{lkmGender,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmPostion != null">
+        #{lkmPostion,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmTel != null">
+        #{lkmTel,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMobile != null">
+        #{lkmMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMemo != null">
+        #{lkmMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.LinkMan">
+    update tbl_linkman
+    <set>
+      <if test="lkmCustNo != null">
+        lkm_cust_no = #{lkmCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lkmCustName != null">
+        lkm_cust_name = #{lkmCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmName != null">
+        lkm_name = #{lkmName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmGender != null">
+        lkm_gender = #{lkmGender,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmPostion != null">
+        lkm_postion = #{lkmPostion,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmTel != null">
+        lkm_tel = #{lkmTel,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMobile != null">
+        lkm_mobile = #{lkmMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMemo != null">
+        lkm_memo = #{lkmMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.LinkMan">
+    update tbl_linkman
+    set lkm_cust_no = #{lkmCustNo,jdbcType=INTEGER},
+      lkm_cust_name = #{lkmCustName,jdbcType=VARCHAR},
+      lkm_name = #{lkmName,jdbcType=VARCHAR},
+      lkm_gender = #{lkmGender,jdbcType=VARCHAR},
+      lkm_postion = #{lkmPostion,jdbcType=VARCHAR},
+      lkm_tel = #{lkmTel,jdbcType=VARCHAR},
+      lkm_mobile = #{lkmMobile,jdbcType=VARCHAR},
+      lkm_memo = #{lkmMemo,jdbcType=VARCHAR}
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.LinkMan">
+    <id column="lkm_id" jdbcType="INTEGER" property="lkmId" />
+    <result column="lkm_cust_no" jdbcType="INTEGER" property="lkmCustNo" />
+    <result column="lkm_cust_name" jdbcType="VARCHAR" property="lkmCustName" />
+    <result column="lkm_name" jdbcType="VARCHAR" property="lkmName" />
+    <result column="lkm_gender" jdbcType="VARCHAR" property="lkmGender" />
+    <result column="lkm_postion" jdbcType="VARCHAR" property="lkmPostion" />
+    <result column="lkm_tel" jdbcType="VARCHAR" property="lkmTel" />
+    <result column="lkm_mobile" jdbcType="VARCHAR" property="lkmMobile" />
+    <result column="lkm_memo" jdbcType="VARCHAR" property="lkmMemo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    lkm_id, lkm_cust_no, lkm_cust_name, lkm_name, lkm_gender, lkm_postion, lkm_tel, lkm_mobile, 
+    lkm_memo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_linkman
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_linkman
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.LinkMan">
+    insert into tbl_linkman (lkm_id, lkm_cust_no, lkm_cust_name, 
+      lkm_name, lkm_gender, lkm_postion, 
+      lkm_tel, lkm_mobile, lkm_memo
+      )
+    values (#{lkmId,jdbcType=INTEGER}, #{lkmCustNo,jdbcType=INTEGER}, #{lkmCustName,jdbcType=VARCHAR}, 
+      #{lkmName,jdbcType=VARCHAR}, #{lkmGender,jdbcType=VARCHAR}, #{lkmPostion,jdbcType=VARCHAR}, 
+      #{lkmTel,jdbcType=VARCHAR}, #{lkmMobile,jdbcType=VARCHAR}, #{lkmMemo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.LinkMan">
+    insert into tbl_linkman
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lkmId != null">
+        lkm_id,
+      </if>
+      <if test="lkmCustNo != null">
+        lkm_cust_no,
+      </if>
+      <if test="lkmCustName != null">
+        lkm_cust_name,
+      </if>
+      <if test="lkmName != null">
+        lkm_name,
+      </if>
+      <if test="lkmGender != null">
+        lkm_gender,
+      </if>
+      <if test="lkmPostion != null">
+        lkm_postion,
+      </if>
+      <if test="lkmTel != null">
+        lkm_tel,
+      </if>
+      <if test="lkmMobile != null">
+        lkm_mobile,
+      </if>
+      <if test="lkmMemo != null">
+        lkm_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lkmId != null">
+        #{lkmId,jdbcType=INTEGER},
+      </if>
+      <if test="lkmCustNo != null">
+        #{lkmCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lkmCustName != null">
+        #{lkmCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmName != null">
+        #{lkmName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmGender != null">
+        #{lkmGender,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmPostion != null">
+        #{lkmPostion,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmTel != null">
+        #{lkmTel,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMobile != null">
+        #{lkmMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMemo != null">
+        #{lkmMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.LinkMan">
+    update tbl_linkman
+    <set>
+      <if test="lkmCustNo != null">
+        lkm_cust_no = #{lkmCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lkmCustName != null">
+        lkm_cust_name = #{lkmCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmName != null">
+        lkm_name = #{lkmName,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmGender != null">
+        lkm_gender = #{lkmGender,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmPostion != null">
+        lkm_postion = #{lkmPostion,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmTel != null">
+        lkm_tel = #{lkmTel,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMobile != null">
+        lkm_mobile = #{lkmMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="lkmMemo != null">
+        lkm_memo = #{lkmMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.LinkMan">
+    update tbl_linkman
+    set lkm_cust_no = #{lkmCustNo,jdbcType=INTEGER},
+      lkm_cust_name = #{lkmCustName,jdbcType=VARCHAR},
+      lkm_name = #{lkmName,jdbcType=VARCHAR},
+      lkm_gender = #{lkmGender,jdbcType=VARCHAR},
+      lkm_postion = #{lkmPostion,jdbcType=VARCHAR},
+      lkm_tel = #{lkmTel,jdbcType=VARCHAR},
+      lkm_mobile = #{lkmMobile,jdbcType=VARCHAR},
+      lkm_memo = #{lkmMemo,jdbcType=VARCHAR}
+    where lkm_id = #{lkmId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.CstCustomerMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.CstCustomer">
+    <id column="cust_no_id" jdbcType="INTEGER" property="custNoId" />
+    <result column="cust_name" jdbcType="VARCHAR" property="custName" />
+    <result column="cust_region" jdbcType="VARCHAR" property="custRegion" />
+    <result column="cust_manager_id" jdbcType="INTEGER" property="custManagerId" />
+    <result column="cust_manager_name" jdbcType="VARCHAR" property="custManagerName" />
+    <result column="cust_level" jdbcType="INTEGER" property="custLevel" />
+    <result column="cust_level_label" jdbcType="VARCHAR" property="custLevelLabel" />
+    <result column="cust_satisfy" jdbcType="INTEGER" property="custSatisfy" />
+    <result column="cust_creadit" jdbcType="INTEGER" property="custCreadit" />
+    <result column="cust_address" jdbcType="VARCHAR" property="custAddress" />
+    <result column="cust_zip" jdbcType="CHAR" property="custZip" />
+    <result column="cust_tel" jdbcType="VARCHAR" property="custTel" />
+    <result column="cust_fax" jdbcType="VARCHAR" property="custFax" />
+    <result column="cust_website" jdbcType="VARCHAR" property="custWebsite" />
+    <result column="cust_licence_no" jdbcType="VARCHAR" property="custLicenceNo" />
+    <result column="cust_chieftain" jdbcType="VARCHAR" property="custChieftain" />
+    <result column="cust_back_roll" jdbcType="INTEGER" property="custBackRoll" />
+    <result column="cust_turn_over" jdbcType="INTEGER" property="custTurnOver" />
+    <result column="cust_back" jdbcType="VARCHAR" property="custBack" />
+    <result column="cust_back_account" jdbcType="VARCHAR" property="custBackAccount" />
+    <result column="cust_local_tax_no" jdbcType="VARCHAR" property="custLocalTaxNo" />
+    <result column="cust_national_tax_no" jdbcType="VARCHAR" property="custNationalTaxNo" />
+    <result column="cust_status" jdbcType="CHAR" property="custStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cust_no_id, cust_name, cust_region, cust_manager_id, cust_manager_name, cust_level, 
+    cust_level_label, cust_satisfy, cust_creadit, cust_address, cust_zip, cust_tel, cust_fax, 
+    cust_website, cust_licence_no, cust_chieftain, cust_back_roll, cust_turn_over, cust_back, 
+    cust_back_account, cust_local_tax_no, cust_national_tax_no, cust_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_cst_customer
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_cst_customer
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.CstCustomer">
+    insert into tbl_cst_customer (cust_no_id, cust_name, cust_region, 
+      cust_manager_id, cust_manager_name, cust_level, 
+      cust_level_label, cust_satisfy, cust_creadit, 
+      cust_address, cust_zip, cust_tel, 
+      cust_fax, cust_website, cust_licence_no, 
+      cust_chieftain, cust_back_roll, cust_turn_over, 
+      cust_back, cust_back_account, cust_local_tax_no, 
+      cust_national_tax_no, cust_status)
+    values (#{custNoId,jdbcType=INTEGER}, #{custName,jdbcType=VARCHAR}, #{custRegion,jdbcType=VARCHAR}, 
+      #{custManagerId,jdbcType=INTEGER}, #{custManagerName,jdbcType=VARCHAR}, #{custLevel,jdbcType=INTEGER}, 
+      #{custLevelLabel,jdbcType=VARCHAR}, #{custSatisfy,jdbcType=INTEGER}, #{custCreadit,jdbcType=INTEGER}, 
+      #{custAddress,jdbcType=VARCHAR}, #{custZip,jdbcType=CHAR}, #{custTel,jdbcType=VARCHAR}, 
+      #{custFax,jdbcType=VARCHAR}, #{custWebsite,jdbcType=VARCHAR}, #{custLicenceNo,jdbcType=VARCHAR}, 
+      #{custChieftain,jdbcType=VARCHAR}, #{custBackRoll,jdbcType=INTEGER}, #{custTurnOver,jdbcType=INTEGER}, 
+      #{custBack,jdbcType=VARCHAR}, #{custBackAccount,jdbcType=VARCHAR}, #{custLocalTaxNo,jdbcType=VARCHAR}, 
+      #{custNationalTaxNo,jdbcType=VARCHAR}, #{custStatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.CstCustomer">
+    insert into tbl_cst_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="custNoId != null">
+        cust_no_id,
+      </if>
+      <if test="custName != null">
+        cust_name,
+      </if>
+      <if test="custRegion != null">
+        cust_region,
+      </if>
+      <if test="custManagerId != null">
+        cust_manager_id,
+      </if>
+      <if test="custManagerName != null">
+        cust_manager_name,
+      </if>
+      <if test="custLevel != null">
+        cust_level,
+      </if>
+      <if test="custLevelLabel != null">
+        cust_level_label,
+      </if>
+      <if test="custSatisfy != null">
+        cust_satisfy,
+      </if>
+      <if test="custCreadit != null">
+        cust_creadit,
+      </if>
+      <if test="custAddress != null">
+        cust_address,
+      </if>
+      <if test="custZip != null">
+        cust_zip,
+      </if>
+      <if test="custTel != null">
+        cust_tel,
+      </if>
+      <if test="custFax != null">
+        cust_fax,
+      </if>
+      <if test="custWebsite != null">
+        cust_website,
+      </if>
+      <if test="custLicenceNo != null">
+        cust_licence_no,
+      </if>
+      <if test="custChieftain != null">
+        cust_chieftain,
+      </if>
+      <if test="custBackRoll != null">
+        cust_back_roll,
+      </if>
+      <if test="custTurnOver != null">
+        cust_turn_over,
+      </if>
+      <if test="custBack != null">
+        cust_back,
+      </if>
+      <if test="custBackAccount != null">
+        cust_back_account,
+      </if>
+      <if test="custLocalTaxNo != null">
+        cust_local_tax_no,
+      </if>
+      <if test="custNationalTaxNo != null">
+        cust_national_tax_no,
+      </if>
+      <if test="custStatus != null">
+        cust_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="custNoId != null">
+        #{custNoId,jdbcType=INTEGER},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custRegion != null">
+        #{custRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="custManagerId != null">
+        #{custManagerId,jdbcType=INTEGER},
+      </if>
+      <if test="custManagerName != null">
+        #{custManagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="custLevel != null">
+        #{custLevel,jdbcType=INTEGER},
+      </if>
+      <if test="custLevelLabel != null">
+        #{custLevelLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="custSatisfy != null">
+        #{custSatisfy,jdbcType=INTEGER},
+      </if>
+      <if test="custCreadit != null">
+        #{custCreadit,jdbcType=INTEGER},
+      </if>
+      <if test="custAddress != null">
+        #{custAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="custZip != null">
+        #{custZip,jdbcType=CHAR},
+      </if>
+      <if test="custTel != null">
+        #{custTel,jdbcType=VARCHAR},
+      </if>
+      <if test="custFax != null">
+        #{custFax,jdbcType=VARCHAR},
+      </if>
+      <if test="custWebsite != null">
+        #{custWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="custLicenceNo != null">
+        #{custLicenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custChieftain != null">
+        #{custChieftain,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackRoll != null">
+        #{custBackRoll,jdbcType=INTEGER},
+      </if>
+      <if test="custTurnOver != null">
+        #{custTurnOver,jdbcType=INTEGER},
+      </if>
+      <if test="custBack != null">
+        #{custBack,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackAccount != null">
+        #{custBackAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="custLocalTaxNo != null">
+        #{custLocalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custNationalTaxNo != null">
+        #{custNationalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custStatus != null">
+        #{custStatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.CstCustomer">
+    update tbl_cst_customer
+    <set>
+      <if test="custName != null">
+        cust_name = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custRegion != null">
+        cust_region = #{custRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="custManagerId != null">
+        cust_manager_id = #{custManagerId,jdbcType=INTEGER},
+      </if>
+      <if test="custManagerName != null">
+        cust_manager_name = #{custManagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="custLevel != null">
+        cust_level = #{custLevel,jdbcType=INTEGER},
+      </if>
+      <if test="custLevelLabel != null">
+        cust_level_label = #{custLevelLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="custSatisfy != null">
+        cust_satisfy = #{custSatisfy,jdbcType=INTEGER},
+      </if>
+      <if test="custCreadit != null">
+        cust_creadit = #{custCreadit,jdbcType=INTEGER},
+      </if>
+      <if test="custAddress != null">
+        cust_address = #{custAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="custZip != null">
+        cust_zip = #{custZip,jdbcType=CHAR},
+      </if>
+      <if test="custTel != null">
+        cust_tel = #{custTel,jdbcType=VARCHAR},
+      </if>
+      <if test="custFax != null">
+        cust_fax = #{custFax,jdbcType=VARCHAR},
+      </if>
+      <if test="custWebsite != null">
+        cust_website = #{custWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="custLicenceNo != null">
+        cust_licence_no = #{custLicenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custChieftain != null">
+        cust_chieftain = #{custChieftain,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackRoll != null">
+        cust_back_roll = #{custBackRoll,jdbcType=INTEGER},
+      </if>
+      <if test="custTurnOver != null">
+        cust_turn_over = #{custTurnOver,jdbcType=INTEGER},
+      </if>
+      <if test="custBack != null">
+        cust_back = #{custBack,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackAccount != null">
+        cust_back_account = #{custBackAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="custLocalTaxNo != null">
+        cust_local_tax_no = #{custLocalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custNationalTaxNo != null">
+        cust_national_tax_no = #{custNationalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custStatus != null">
+        cust_status = #{custStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.CstCustomer">
+    update tbl_cst_customer
+    set cust_name = #{custName,jdbcType=VARCHAR},
+      cust_region = #{custRegion,jdbcType=VARCHAR},
+      cust_manager_id = #{custManagerId,jdbcType=INTEGER},
+      cust_manager_name = #{custManagerName,jdbcType=VARCHAR},
+      cust_level = #{custLevel,jdbcType=INTEGER},
+      cust_level_label = #{custLevelLabel,jdbcType=VARCHAR},
+      cust_satisfy = #{custSatisfy,jdbcType=INTEGER},
+      cust_creadit = #{custCreadit,jdbcType=INTEGER},
+      cust_address = #{custAddress,jdbcType=VARCHAR},
+      cust_zip = #{custZip,jdbcType=CHAR},
+      cust_tel = #{custTel,jdbcType=VARCHAR},
+      cust_fax = #{custFax,jdbcType=VARCHAR},
+      cust_website = #{custWebsite,jdbcType=VARCHAR},
+      cust_licence_no = #{custLicenceNo,jdbcType=VARCHAR},
+      cust_chieftain = #{custChieftain,jdbcType=VARCHAR},
+      cust_back_roll = #{custBackRoll,jdbcType=INTEGER},
+      cust_turn_over = #{custTurnOver,jdbcType=INTEGER},
+      cust_back = #{custBack,jdbcType=VARCHAR},
+      cust_back_account = #{custBackAccount,jdbcType=VARCHAR},
+      cust_local_tax_no = #{custLocalTaxNo,jdbcType=VARCHAR},
+      cust_national_tax_no = #{custNationalTaxNo,jdbcType=VARCHAR},
+      cust_status = #{custStatus,jdbcType=CHAR}
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.CstCustomer">
+    <id column="cust_no_id" jdbcType="INTEGER" property="custNoId" />
+    <result column="cust_name" jdbcType="VARCHAR" property="custName" />
+    <result column="cust_region" jdbcType="VARCHAR" property="custRegion" />
+    <result column="cust_manager_id" jdbcType="INTEGER" property="custManagerId" />
+    <result column="cust_manager_name" jdbcType="VARCHAR" property="custManagerName" />
+    <result column="cust_level" jdbcType="INTEGER" property="custLevel" />
+    <result column="cust_level_label" jdbcType="VARCHAR" property="custLevelLabel" />
+    <result column="cust_satisfy" jdbcType="INTEGER" property="custSatisfy" />
+    <result column="cust_creadit" jdbcType="INTEGER" property="custCreadit" />
+    <result column="cust_address" jdbcType="VARCHAR" property="custAddress" />
+    <result column="cust_zip" jdbcType="CHAR" property="custZip" />
+    <result column="cust_tel" jdbcType="VARCHAR" property="custTel" />
+    <result column="cust_fax" jdbcType="VARCHAR" property="custFax" />
+    <result column="cust_website" jdbcType="VARCHAR" property="custWebsite" />
+    <result column="cust_licence_no" jdbcType="VARCHAR" property="custLicenceNo" />
+    <result column="cust_chieftain" jdbcType="VARCHAR" property="custChieftain" />
+    <result column="cust_back_roll" jdbcType="INTEGER" property="custBackRoll" />
+    <result column="cust_turn_over" jdbcType="INTEGER" property="custTurnOver" />
+    <result column="cust_back" jdbcType="VARCHAR" property="custBack" />
+    <result column="cust_back_account" jdbcType="VARCHAR" property="custBackAccount" />
+    <result column="cust_local_tax_no" jdbcType="VARCHAR" property="custLocalTaxNo" />
+    <result column="cust_national_tax_no" jdbcType="VARCHAR" property="custNationalTaxNo" />
+    <result column="cust_status" jdbcType="CHAR" property="custStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cust_no_id, cust_name, cust_region, cust_manager_id, cust_manager_name, cust_level, 
+    cust_level_label, cust_satisfy, cust_creadit, cust_address, cust_zip, cust_tel, cust_fax, 
+    cust_website, cust_licence_no, cust_chieftain, cust_back_roll, cust_turn_over, cust_back, 
+    cust_back_account, cust_local_tax_no, cust_national_tax_no, cust_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_cst_customer
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_cst_customer
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.CstCustomer">
+    insert into tbl_cst_customer (cust_no_id, cust_name, cust_region, 
+      cust_manager_id, cust_manager_name, cust_level, 
+      cust_level_label, cust_satisfy, cust_creadit, 
+      cust_address, cust_zip, cust_tel, 
+      cust_fax, cust_website, cust_licence_no, 
+      cust_chieftain, cust_back_roll, cust_turn_over, 
+      cust_back, cust_back_account, cust_local_tax_no, 
+      cust_national_tax_no, cust_status)
+    values (#{custNoId,jdbcType=INTEGER}, #{custName,jdbcType=VARCHAR}, #{custRegion,jdbcType=VARCHAR}, 
+      #{custManagerId,jdbcType=INTEGER}, #{custManagerName,jdbcType=VARCHAR}, #{custLevel,jdbcType=INTEGER}, 
+      #{custLevelLabel,jdbcType=VARCHAR}, #{custSatisfy,jdbcType=INTEGER}, #{custCreadit,jdbcType=INTEGER}, 
+      #{custAddress,jdbcType=VARCHAR}, #{custZip,jdbcType=CHAR}, #{custTel,jdbcType=VARCHAR}, 
+      #{custFax,jdbcType=VARCHAR}, #{custWebsite,jdbcType=VARCHAR}, #{custLicenceNo,jdbcType=VARCHAR}, 
+      #{custChieftain,jdbcType=VARCHAR}, #{custBackRoll,jdbcType=INTEGER}, #{custTurnOver,jdbcType=INTEGER}, 
+      #{custBack,jdbcType=VARCHAR}, #{custBackAccount,jdbcType=VARCHAR}, #{custLocalTaxNo,jdbcType=VARCHAR}, 
+      #{custNationalTaxNo,jdbcType=VARCHAR}, #{custStatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.CstCustomer">
+    insert into tbl_cst_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="custNoId != null">
+        cust_no_id,
+      </if>
+      <if test="custName != null">
+        cust_name,
+      </if>
+      <if test="custRegion != null">
+        cust_region,
+      </if>
+      <if test="custManagerId != null">
+        cust_manager_id,
+      </if>
+      <if test="custManagerName != null">
+        cust_manager_name,
+      </if>
+      <if test="custLevel != null">
+        cust_level,
+      </if>
+      <if test="custLevelLabel != null">
+        cust_level_label,
+      </if>
+      <if test="custSatisfy != null">
+        cust_satisfy,
+      </if>
+      <if test="custCreadit != null">
+        cust_creadit,
+      </if>
+      <if test="custAddress != null">
+        cust_address,
+      </if>
+      <if test="custZip != null">
+        cust_zip,
+      </if>
+      <if test="custTel != null">
+        cust_tel,
+      </if>
+      <if test="custFax != null">
+        cust_fax,
+      </if>
+      <if test="custWebsite != null">
+        cust_website,
+      </if>
+      <if test="custLicenceNo != null">
+        cust_licence_no,
+      </if>
+      <if test="custChieftain != null">
+        cust_chieftain,
+      </if>
+      <if test="custBackRoll != null">
+        cust_back_roll,
+      </if>
+      <if test="custTurnOver != null">
+        cust_turn_over,
+      </if>
+      <if test="custBack != null">
+        cust_back,
+      </if>
+      <if test="custBackAccount != null">
+        cust_back_account,
+      </if>
+      <if test="custLocalTaxNo != null">
+        cust_local_tax_no,
+      </if>
+      <if test="custNationalTaxNo != null">
+        cust_national_tax_no,
+      </if>
+      <if test="custStatus != null">
+        cust_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="custNoId != null">
+        #{custNoId,jdbcType=INTEGER},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custRegion != null">
+        #{custRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="custManagerId != null">
+        #{custManagerId,jdbcType=INTEGER},
+      </if>
+      <if test="custManagerName != null">
+        #{custManagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="custLevel != null">
+        #{custLevel,jdbcType=INTEGER},
+      </if>
+      <if test="custLevelLabel != null">
+        #{custLevelLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="custSatisfy != null">
+        #{custSatisfy,jdbcType=INTEGER},
+      </if>
+      <if test="custCreadit != null">
+        #{custCreadit,jdbcType=INTEGER},
+      </if>
+      <if test="custAddress != null">
+        #{custAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="custZip != null">
+        #{custZip,jdbcType=CHAR},
+      </if>
+      <if test="custTel != null">
+        #{custTel,jdbcType=VARCHAR},
+      </if>
+      <if test="custFax != null">
+        #{custFax,jdbcType=VARCHAR},
+      </if>
+      <if test="custWebsite != null">
+        #{custWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="custLicenceNo != null">
+        #{custLicenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custChieftain != null">
+        #{custChieftain,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackRoll != null">
+        #{custBackRoll,jdbcType=INTEGER},
+      </if>
+      <if test="custTurnOver != null">
+        #{custTurnOver,jdbcType=INTEGER},
+      </if>
+      <if test="custBack != null">
+        #{custBack,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackAccount != null">
+        #{custBackAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="custLocalTaxNo != null">
+        #{custLocalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custNationalTaxNo != null">
+        #{custNationalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custStatus != null">
+        #{custStatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.CstCustomer">
+    update tbl_cst_customer
+    <set>
+      <if test="custName != null">
+        cust_name = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custRegion != null">
+        cust_region = #{custRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="custManagerId != null">
+        cust_manager_id = #{custManagerId,jdbcType=INTEGER},
+      </if>
+      <if test="custManagerName != null">
+        cust_manager_name = #{custManagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="custLevel != null">
+        cust_level = #{custLevel,jdbcType=INTEGER},
+      </if>
+      <if test="custLevelLabel != null">
+        cust_level_label = #{custLevelLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="custSatisfy != null">
+        cust_satisfy = #{custSatisfy,jdbcType=INTEGER},
+      </if>
+      <if test="custCreadit != null">
+        cust_creadit = #{custCreadit,jdbcType=INTEGER},
+      </if>
+      <if test="custAddress != null">
+        cust_address = #{custAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="custZip != null">
+        cust_zip = #{custZip,jdbcType=CHAR},
+      </if>
+      <if test="custTel != null">
+        cust_tel = #{custTel,jdbcType=VARCHAR},
+      </if>
+      <if test="custFax != null">
+        cust_fax = #{custFax,jdbcType=VARCHAR},
+      </if>
+      <if test="custWebsite != null">
+        cust_website = #{custWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="custLicenceNo != null">
+        cust_licence_no = #{custLicenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custChieftain != null">
+        cust_chieftain = #{custChieftain,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackRoll != null">
+        cust_back_roll = #{custBackRoll,jdbcType=INTEGER},
+      </if>
+      <if test="custTurnOver != null">
+        cust_turn_over = #{custTurnOver,jdbcType=INTEGER},
+      </if>
+      <if test="custBack != null">
+        cust_back = #{custBack,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackAccount != null">
+        cust_back_account = #{custBackAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="custLocalTaxNo != null">
+        cust_local_tax_no = #{custLocalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custNationalTaxNo != null">
+        cust_national_tax_no = #{custNationalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custStatus != null">
+        cust_status = #{custStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.CstCustomer">
+    update tbl_cst_customer
+    set cust_name = #{custName,jdbcType=VARCHAR},
+      cust_region = #{custRegion,jdbcType=VARCHAR},
+      cust_manager_id = #{custManagerId,jdbcType=INTEGER},
+      cust_manager_name = #{custManagerName,jdbcType=VARCHAR},
+      cust_level = #{custLevel,jdbcType=INTEGER},
+      cust_level_label = #{custLevelLabel,jdbcType=VARCHAR},
+      cust_satisfy = #{custSatisfy,jdbcType=INTEGER},
+      cust_creadit = #{custCreadit,jdbcType=INTEGER},
+      cust_address = #{custAddress,jdbcType=VARCHAR},
+      cust_zip = #{custZip,jdbcType=CHAR},
+      cust_tel = #{custTel,jdbcType=VARCHAR},
+      cust_fax = #{custFax,jdbcType=VARCHAR},
+      cust_website = #{custWebsite,jdbcType=VARCHAR},
+      cust_licence_no = #{custLicenceNo,jdbcType=VARCHAR},
+      cust_chieftain = #{custChieftain,jdbcType=VARCHAR},
+      cust_back_roll = #{custBackRoll,jdbcType=INTEGER},
+      cust_turn_over = #{custTurnOver,jdbcType=INTEGER},
+      cust_back = #{custBack,jdbcType=VARCHAR},
+      cust_back_account = #{custBackAccount,jdbcType=VARCHAR},
+      cust_local_tax_no = #{custLocalTaxNo,jdbcType=VARCHAR},
+      cust_national_tax_no = #{custNationalTaxNo,jdbcType=VARCHAR},
+      cust_status = #{custStatus,jdbcType=CHAR}
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.CstCustomer">
+    <id column="cust_no_id" jdbcType="INTEGER" property="custNoId" />
+    <result column="cust_name" jdbcType="VARCHAR" property="custName" />
+    <result column="cust_region" jdbcType="VARCHAR" property="custRegion" />
+    <result column="cust_manager_id" jdbcType="INTEGER" property="custManagerId" />
+    <result column="cust_manager_name" jdbcType="VARCHAR" property="custManagerName" />
+    <result column="cust_level" jdbcType="INTEGER" property="custLevel" />
+    <result column="cust_level_label" jdbcType="VARCHAR" property="custLevelLabel" />
+    <result column="cust_satisfy" jdbcType="INTEGER" property="custSatisfy" />
+    <result column="cust_creadit" jdbcType="INTEGER" property="custCreadit" />
+    <result column="cust_address" jdbcType="VARCHAR" property="custAddress" />
+    <result column="cust_zip" jdbcType="CHAR" property="custZip" />
+    <result column="cust_tel" jdbcType="VARCHAR" property="custTel" />
+    <result column="cust_fax" jdbcType="VARCHAR" property="custFax" />
+    <result column="cust_website" jdbcType="VARCHAR" property="custWebsite" />
+    <result column="cust_licence_no" jdbcType="VARCHAR" property="custLicenceNo" />
+    <result column="cust_chieftain" jdbcType="VARCHAR" property="custChieftain" />
+    <result column="cust_back_roll" jdbcType="INTEGER" property="custBackRoll" />
+    <result column="cust_turn_over" jdbcType="INTEGER" property="custTurnOver" />
+    <result column="cust_back" jdbcType="VARCHAR" property="custBack" />
+    <result column="cust_back_account" jdbcType="VARCHAR" property="custBackAccount" />
+    <result column="cust_local_tax_no" jdbcType="VARCHAR" property="custLocalTaxNo" />
+    <result column="cust_national_tax_no" jdbcType="VARCHAR" property="custNationalTaxNo" />
+    <result column="cust_status" jdbcType="CHAR" property="custStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cust_no_id, cust_name, cust_region, cust_manager_id, cust_manager_name, cust_level, 
+    cust_level_label, cust_satisfy, cust_creadit, cust_address, cust_zip, cust_tel, cust_fax, 
+    cust_website, cust_licence_no, cust_chieftain, cust_back_roll, cust_turn_over, cust_back, 
+    cust_back_account, cust_local_tax_no, cust_national_tax_no, cust_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_cst_customer
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_cst_customer
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.CstCustomer">
+    insert into tbl_cst_customer (cust_no_id, cust_name, cust_region, 
+      cust_manager_id, cust_manager_name, cust_level, 
+      cust_level_label, cust_satisfy, cust_creadit, 
+      cust_address, cust_zip, cust_tel, 
+      cust_fax, cust_website, cust_licence_no, 
+      cust_chieftain, cust_back_roll, cust_turn_over, 
+      cust_back, cust_back_account, cust_local_tax_no, 
+      cust_national_tax_no, cust_status)
+    values (#{custNoId,jdbcType=INTEGER}, #{custName,jdbcType=VARCHAR}, #{custRegion,jdbcType=VARCHAR}, 
+      #{custManagerId,jdbcType=INTEGER}, #{custManagerName,jdbcType=VARCHAR}, #{custLevel,jdbcType=INTEGER}, 
+      #{custLevelLabel,jdbcType=VARCHAR}, #{custSatisfy,jdbcType=INTEGER}, #{custCreadit,jdbcType=INTEGER}, 
+      #{custAddress,jdbcType=VARCHAR}, #{custZip,jdbcType=CHAR}, #{custTel,jdbcType=VARCHAR}, 
+      #{custFax,jdbcType=VARCHAR}, #{custWebsite,jdbcType=VARCHAR}, #{custLicenceNo,jdbcType=VARCHAR}, 
+      #{custChieftain,jdbcType=VARCHAR}, #{custBackRoll,jdbcType=INTEGER}, #{custTurnOver,jdbcType=INTEGER}, 
+      #{custBack,jdbcType=VARCHAR}, #{custBackAccount,jdbcType=VARCHAR}, #{custLocalTaxNo,jdbcType=VARCHAR}, 
+      #{custNationalTaxNo,jdbcType=VARCHAR}, #{custStatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.CstCustomer">
+    insert into tbl_cst_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="custNoId != null">
+        cust_no_id,
+      </if>
+      <if test="custName != null">
+        cust_name,
+      </if>
+      <if test="custRegion != null">
+        cust_region,
+      </if>
+      <if test="custManagerId != null">
+        cust_manager_id,
+      </if>
+      <if test="custManagerName != null">
+        cust_manager_name,
+      </if>
+      <if test="custLevel != null">
+        cust_level,
+      </if>
+      <if test="custLevelLabel != null">
+        cust_level_label,
+      </if>
+      <if test="custSatisfy != null">
+        cust_satisfy,
+      </if>
+      <if test="custCreadit != null">
+        cust_creadit,
+      </if>
+      <if test="custAddress != null">
+        cust_address,
+      </if>
+      <if test="custZip != null">
+        cust_zip,
+      </if>
+      <if test="custTel != null">
+        cust_tel,
+      </if>
+      <if test="custFax != null">
+        cust_fax,
+      </if>
+      <if test="custWebsite != null">
+        cust_website,
+      </if>
+      <if test="custLicenceNo != null">
+        cust_licence_no,
+      </if>
+      <if test="custChieftain != null">
+        cust_chieftain,
+      </if>
+      <if test="custBackRoll != null">
+        cust_back_roll,
+      </if>
+      <if test="custTurnOver != null">
+        cust_turn_over,
+      </if>
+      <if test="custBack != null">
+        cust_back,
+      </if>
+      <if test="custBackAccount != null">
+        cust_back_account,
+      </if>
+      <if test="custLocalTaxNo != null">
+        cust_local_tax_no,
+      </if>
+      <if test="custNationalTaxNo != null">
+        cust_national_tax_no,
+      </if>
+      <if test="custStatus != null">
+        cust_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="custNoId != null">
+        #{custNoId,jdbcType=INTEGER},
+      </if>
+      <if test="custName != null">
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custRegion != null">
+        #{custRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="custManagerId != null">
+        #{custManagerId,jdbcType=INTEGER},
+      </if>
+      <if test="custManagerName != null">
+        #{custManagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="custLevel != null">
+        #{custLevel,jdbcType=INTEGER},
+      </if>
+      <if test="custLevelLabel != null">
+        #{custLevelLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="custSatisfy != null">
+        #{custSatisfy,jdbcType=INTEGER},
+      </if>
+      <if test="custCreadit != null">
+        #{custCreadit,jdbcType=INTEGER},
+      </if>
+      <if test="custAddress != null">
+        #{custAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="custZip != null">
+        #{custZip,jdbcType=CHAR},
+      </if>
+      <if test="custTel != null">
+        #{custTel,jdbcType=VARCHAR},
+      </if>
+      <if test="custFax != null">
+        #{custFax,jdbcType=VARCHAR},
+      </if>
+      <if test="custWebsite != null">
+        #{custWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="custLicenceNo != null">
+        #{custLicenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custChieftain != null">
+        #{custChieftain,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackRoll != null">
+        #{custBackRoll,jdbcType=INTEGER},
+      </if>
+      <if test="custTurnOver != null">
+        #{custTurnOver,jdbcType=INTEGER},
+      </if>
+      <if test="custBack != null">
+        #{custBack,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackAccount != null">
+        #{custBackAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="custLocalTaxNo != null">
+        #{custLocalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custNationalTaxNo != null">
+        #{custNationalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custStatus != null">
+        #{custStatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.CstCustomer">
+    update tbl_cst_customer
+    <set>
+      <if test="custName != null">
+        cust_name = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="custRegion != null">
+        cust_region = #{custRegion,jdbcType=VARCHAR},
+      </if>
+      <if test="custManagerId != null">
+        cust_manager_id = #{custManagerId,jdbcType=INTEGER},
+      </if>
+      <if test="custManagerName != null">
+        cust_manager_name = #{custManagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="custLevel != null">
+        cust_level = #{custLevel,jdbcType=INTEGER},
+      </if>
+      <if test="custLevelLabel != null">
+        cust_level_label = #{custLevelLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="custSatisfy != null">
+        cust_satisfy = #{custSatisfy,jdbcType=INTEGER},
+      </if>
+      <if test="custCreadit != null">
+        cust_creadit = #{custCreadit,jdbcType=INTEGER},
+      </if>
+      <if test="custAddress != null">
+        cust_address = #{custAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="custZip != null">
+        cust_zip = #{custZip,jdbcType=CHAR},
+      </if>
+      <if test="custTel != null">
+        cust_tel = #{custTel,jdbcType=VARCHAR},
+      </if>
+      <if test="custFax != null">
+        cust_fax = #{custFax,jdbcType=VARCHAR},
+      </if>
+      <if test="custWebsite != null">
+        cust_website = #{custWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="custLicenceNo != null">
+        cust_licence_no = #{custLicenceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custChieftain != null">
+        cust_chieftain = #{custChieftain,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackRoll != null">
+        cust_back_roll = #{custBackRoll,jdbcType=INTEGER},
+      </if>
+      <if test="custTurnOver != null">
+        cust_turn_over = #{custTurnOver,jdbcType=INTEGER},
+      </if>
+      <if test="custBack != null">
+        cust_back = #{custBack,jdbcType=VARCHAR},
+      </if>
+      <if test="custBackAccount != null">
+        cust_back_account = #{custBackAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="custLocalTaxNo != null">
+        cust_local_tax_no = #{custLocalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custNationalTaxNo != null">
+        cust_national_tax_no = #{custNationalTaxNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custStatus != null">
+        cust_status = #{custStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.CstCustomer">
+    update tbl_cst_customer
+    set cust_name = #{custName,jdbcType=VARCHAR},
+      cust_region = #{custRegion,jdbcType=VARCHAR},
+      cust_manager_id = #{custManagerId,jdbcType=INTEGER},
+      cust_manager_name = #{custManagerName,jdbcType=VARCHAR},
+      cust_level = #{custLevel,jdbcType=INTEGER},
+      cust_level_label = #{custLevelLabel,jdbcType=VARCHAR},
+      cust_satisfy = #{custSatisfy,jdbcType=INTEGER},
+      cust_creadit = #{custCreadit,jdbcType=INTEGER},
+      cust_address = #{custAddress,jdbcType=VARCHAR},
+      cust_zip = #{custZip,jdbcType=CHAR},
+      cust_tel = #{custTel,jdbcType=VARCHAR},
+      cust_fax = #{custFax,jdbcType=VARCHAR},
+      cust_website = #{custWebsite,jdbcType=VARCHAR},
+      cust_licence_no = #{custLicenceNo,jdbcType=VARCHAR},
+      cust_chieftain = #{custChieftain,jdbcType=VARCHAR},
+      cust_back_roll = #{custBackRoll,jdbcType=INTEGER},
+      cust_turn_over = #{custTurnOver,jdbcType=INTEGER},
+      cust_back = #{custBack,jdbcType=VARCHAR},
+      cust_back_account = #{custBackAccount,jdbcType=VARCHAR},
+      cust_local_tax_no = #{custLocalTaxNo,jdbcType=VARCHAR},
+      cust_national_tax_no = #{custNationalTaxNo,jdbcType=VARCHAR},
+      cust_status = #{custStatus,jdbcType=CHAR}
+    where cust_no_id = #{custNoId,jdbcType=INTEGER}
+  </update>
+</mapper>

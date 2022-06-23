@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.Product">
+    <id column="prod_id" jdbcType="INTEGER" property="prodId" />
+    <result column="prod_name" jdbcType="VARCHAR" property="prodName" />
+    <result column="prod_type" jdbcType="VARCHAR" property="prodType" />
+    <result column="prod_batch" jdbcType="VARCHAR" property="prodBatch" />
+    <result column="prod_unit" jdbcType="VARCHAR" property="prodUnit" />
+    <result column="prod_price" jdbcType="DECIMAL" property="prodPrice" />
+    <result column="prod_memo" jdbcType="VARCHAR" property="prodMemo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    prod_id, prod_name, prod_type, prod_batch, prod_unit, prod_price, prod_memo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_product
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_product
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Product">
+    insert into tbl_product (prod_id, prod_name, prod_type, 
+      prod_batch, prod_unit, prod_price, 
+      prod_memo)
+    values (#{prodId,jdbcType=INTEGER}, #{prodName,jdbcType=VARCHAR}, #{prodType,jdbcType=VARCHAR}, 
+      #{prodBatch,jdbcType=VARCHAR}, #{prodUnit,jdbcType=VARCHAR}, #{prodPrice,jdbcType=DECIMAL}, 
+      #{prodMemo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Product">
+    insert into tbl_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="prodId != null">
+        prod_id,
+      </if>
+      <if test="prodName != null">
+        prod_name,
+      </if>
+      <if test="prodType != null">
+        prod_type,
+      </if>
+      <if test="prodBatch != null">
+        prod_batch,
+      </if>
+      <if test="prodUnit != null">
+        prod_unit,
+      </if>
+      <if test="prodPrice != null">
+        prod_price,
+      </if>
+      <if test="prodMemo != null">
+        prod_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="prodId != null">
+        #{prodId,jdbcType=INTEGER},
+      </if>
+      <if test="prodName != null">
+        #{prodName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodType != null">
+        #{prodType,jdbcType=VARCHAR},
+      </if>
+      <if test="prodBatch != null">
+        #{prodBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="prodUnit != null">
+        #{prodUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="prodPrice != null">
+        #{prodPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="prodMemo != null">
+        #{prodMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Product">
+    update tbl_product
+    <set>
+      <if test="prodName != null">
+        prod_name = #{prodName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodType != null">
+        prod_type = #{prodType,jdbcType=VARCHAR},
+      </if>
+      <if test="prodBatch != null">
+        prod_batch = #{prodBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="prodUnit != null">
+        prod_unit = #{prodUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="prodPrice != null">
+        prod_price = #{prodPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="prodMemo != null">
+        prod_memo = #{prodMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Product">
+    update tbl_product
+    set prod_name = #{prodName,jdbcType=VARCHAR},
+      prod_type = #{prodType,jdbcType=VARCHAR},
+      prod_batch = #{prodBatch,jdbcType=VARCHAR},
+      prod_unit = #{prodUnit,jdbcType=VARCHAR},
+      prod_price = #{prodPrice,jdbcType=DECIMAL},
+      prod_memo = #{prodMemo,jdbcType=VARCHAR}
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.Product">
+    <id column="prod_id" jdbcType="INTEGER" property="prodId" />
+    <result column="prod_name" jdbcType="VARCHAR" property="prodName" />
+    <result column="prod_type" jdbcType="VARCHAR" property="prodType" />
+    <result column="prod_batch" jdbcType="VARCHAR" property="prodBatch" />
+    <result column="prod_unit" jdbcType="VARCHAR" property="prodUnit" />
+    <result column="prod_price" jdbcType="DECIMAL" property="prodPrice" />
+    <result column="prod_memo" jdbcType="VARCHAR" property="prodMemo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    prod_id, prod_name, prod_type, prod_batch, prod_unit, prod_price, prod_memo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_product
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_product
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Product">
+    insert into tbl_product (prod_id, prod_name, prod_type, 
+      prod_batch, prod_unit, prod_price, 
+      prod_memo)
+    values (#{prodId,jdbcType=INTEGER}, #{prodName,jdbcType=VARCHAR}, #{prodType,jdbcType=VARCHAR}, 
+      #{prodBatch,jdbcType=VARCHAR}, #{prodUnit,jdbcType=VARCHAR}, #{prodPrice,jdbcType=DECIMAL}, 
+      #{prodMemo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Product">
+    insert into tbl_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="prodId != null">
+        prod_id,
+      </if>
+      <if test="prodName != null">
+        prod_name,
+      </if>
+      <if test="prodType != null">
+        prod_type,
+      </if>
+      <if test="prodBatch != null">
+        prod_batch,
+      </if>
+      <if test="prodUnit != null">
+        prod_unit,
+      </if>
+      <if test="prodPrice != null">
+        prod_price,
+      </if>
+      <if test="prodMemo != null">
+        prod_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="prodId != null">
+        #{prodId,jdbcType=INTEGER},
+      </if>
+      <if test="prodName != null">
+        #{prodName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodType != null">
+        #{prodType,jdbcType=VARCHAR},
+      </if>
+      <if test="prodBatch != null">
+        #{prodBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="prodUnit != null">
+        #{prodUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="prodPrice != null">
+        #{prodPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="prodMemo != null">
+        #{prodMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Product">
+    update tbl_product
+    <set>
+      <if test="prodName != null">
+        prod_name = #{prodName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodType != null">
+        prod_type = #{prodType,jdbcType=VARCHAR},
+      </if>
+      <if test="prodBatch != null">
+        prod_batch = #{prodBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="prodUnit != null">
+        prod_unit = #{prodUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="prodPrice != null">
+        prod_price = #{prodPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="prodMemo != null">
+        prod_memo = #{prodMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Product">
+    update tbl_product
+    set prod_name = #{prodName,jdbcType=VARCHAR},
+      prod_type = #{prodType,jdbcType=VARCHAR},
+      prod_batch = #{prodBatch,jdbcType=VARCHAR},
+      prod_unit = #{prodUnit,jdbcType=VARCHAR},
+      prod_price = #{prodPrice,jdbcType=DECIMAL},
+      prod_memo = #{prodMemo,jdbcType=VARCHAR}
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.Product">
+    <id column="prod_id" jdbcType="INTEGER" property="prodId" />
+    <result column="prod_name" jdbcType="VARCHAR" property="prodName" />
+    <result column="prod_type" jdbcType="VARCHAR" property="prodType" />
+    <result column="prod_batch" jdbcType="VARCHAR" property="prodBatch" />
+    <result column="prod_unit" jdbcType="VARCHAR" property="prodUnit" />
+    <result column="prod_price" jdbcType="DECIMAL" property="prodPrice" />
+    <result column="prod_memo" jdbcType="VARCHAR" property="prodMemo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    prod_id, prod_name, prod_type, prod_batch, prod_unit, prod_price, prod_memo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_product
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_product
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.Product">
+    insert into tbl_product (prod_id, prod_name, prod_type, 
+      prod_batch, prod_unit, prod_price, 
+      prod_memo)
+    values (#{prodId,jdbcType=INTEGER}, #{prodName,jdbcType=VARCHAR}, #{prodType,jdbcType=VARCHAR}, 
+      #{prodBatch,jdbcType=VARCHAR}, #{prodUnit,jdbcType=VARCHAR}, #{prodPrice,jdbcType=DECIMAL}, 
+      #{prodMemo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.Product">
+    insert into tbl_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="prodId != null">
+        prod_id,
+      </if>
+      <if test="prodName != null">
+        prod_name,
+      </if>
+      <if test="prodType != null">
+        prod_type,
+      </if>
+      <if test="prodBatch != null">
+        prod_batch,
+      </if>
+      <if test="prodUnit != null">
+        prod_unit,
+      </if>
+      <if test="prodPrice != null">
+        prod_price,
+      </if>
+      <if test="prodMemo != null">
+        prod_memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="prodId != null">
+        #{prodId,jdbcType=INTEGER},
+      </if>
+      <if test="prodName != null">
+        #{prodName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodType != null">
+        #{prodType,jdbcType=VARCHAR},
+      </if>
+      <if test="prodBatch != null">
+        #{prodBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="prodUnit != null">
+        #{prodUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="prodPrice != null">
+        #{prodPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="prodMemo != null">
+        #{prodMemo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.Product">
+    update tbl_product
+    <set>
+      <if test="prodName != null">
+        prod_name = #{prodName,jdbcType=VARCHAR},
+      </if>
+      <if test="prodType != null">
+        prod_type = #{prodType,jdbcType=VARCHAR},
+      </if>
+      <if test="prodBatch != null">
+        prod_batch = #{prodBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="prodUnit != null">
+        prod_unit = #{prodUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="prodPrice != null">
+        prod_price = #{prodPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="prodMemo != null">
+        prod_memo = #{prodMemo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.Product">
+    update tbl_product
+    set prod_name = #{prodName,jdbcType=VARCHAR},
+      prod_type = #{prodType,jdbcType=VARCHAR},
+      prod_batch = #{prodBatch,jdbcType=VARCHAR},
+      prod_unit = #{prodUnit,jdbcType=VARCHAR},
+      prod_price = #{prodPrice,jdbcType=DECIMAL},
+      prod_memo = #{prodMemo,jdbcType=VARCHAR}
+    where prod_id = #{prodId,jdbcType=INTEGER}
+  </update>
+</mapper>

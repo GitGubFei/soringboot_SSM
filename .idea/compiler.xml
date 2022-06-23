@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springboot_05_mybatis_plus" />
+        <module name="soringboot_11_redis" />
+        <module name="springboot_07_test" />
+        <module name="springboot_mynews" />
+        <module name="crmtest" />
+        <module name="springboot_6_configuration" />
+        <module name="springboot_08_ssmp" />
+        <module name="springboot_09_sql" />
+        <module name="spring_boot_02" />
+        <module name="spring_boot_03_mybatis" />
+        <module name="spring_boot_01" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="crmtest" target="1.8" />
+      <module name="soringboot_11_redis" target="1.8" />
+      <module name="spring_boot_01" target="1.8" />
+      <module name="spring_boot_02" target="1.8" />
+      <module name="spring_boot_03_mybatis" target="1.8" />
+      <module name="spring_boot_04_mybatis_plus" target="1.8" />
+      <module name="spring_boot_mybatis2" target="1.8" />
+      <module name="springboot_05_mybatis_plus" target="1.8" />
+      <module name="springboot_07_test" target="1.8" />
+      <module name="springboot_08_ssmp" target="1.8" />
+      <module name="springboot_09_sql" target="1.8" />
+      <module name="springboot_6_configuration" target="1.8" />
+      <module name="springboot_mynews" target="1.8" />
+      <module name="springboot_ssmp" target="1.8" />
+      <module name="sprongboot_ssmp" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="crmtest" options="-parameters" />
+      <module name="soringboot_11_redis" options="-parameters" />
+      <module name="spring_boot_01" options="-parameters" />
+      <module name="spring_boot_02" options="-parameters" />
+      <module name="spring_boot_03_mybatis" options="-parameters" />
+      <module name="spring_boot_04_mybatis_plus" options="-parameters" />
+      <module name="spring_boot_mybatis2" options="-parameters" />
+      <module name="springboot_05_mybatis_plus" options="-parameters" />
+      <module name="springboot_07_test" options="-parameters" />
+      <module name="springboot_08_ssmp" options="-parameters" />
+      <module name="springboot_09_sql" options="-parameters" />
+      <module name="springboot_6_configuration" options="-parameters" />
+      <module name="springboot_mynews" options="-parameters" />
+      <module name="springboot_ssmp" options="-parameters" />
+      <module name="sprongboot_ssmp" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.BasDictMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.BasDict">
+    <id column="dict_id" jdbcType="INTEGER" property="dictId" />
+    <result column="dict_type" jdbcType="VARCHAR" property="dictType" />
+    <result column="dict_item" jdbcType="VARCHAR" property="dictItem" />
+    <result column="dict_value" jdbcType="VARCHAR" property="dictValue" />
+    <result column="dicgt_is_editable" jdbcType="BIT" property="dicgtIsEditable" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dict_id, dict_type, dict_item, dict_value, dicgt_is_editable
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_bas_dict
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_bas_dict
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.BasDict">
+    insert into tbl_bas_dict (dict_id, dict_type, dict_item, 
+      dict_value, dicgt_is_editable)
+    values (#{dictId,jdbcType=INTEGER}, #{dictType,jdbcType=VARCHAR}, #{dictItem,jdbcType=VARCHAR}, 
+      #{dictValue,jdbcType=VARCHAR}, #{dicgtIsEditable,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.BasDict">
+    insert into tbl_bas_dict
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dictId != null">
+        dict_id,
+      </if>
+      <if test="dictType != null">
+        dict_type,
+      </if>
+      <if test="dictItem != null">
+        dict_item,
+      </if>
+      <if test="dictValue != null">
+        dict_value,
+      </if>
+      <if test="dicgtIsEditable != null">
+        dicgt_is_editable,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dictId != null">
+        #{dictId,jdbcType=INTEGER},
+      </if>
+      <if test="dictType != null">
+        #{dictType,jdbcType=VARCHAR},
+      </if>
+      <if test="dictItem != null">
+        #{dictItem,jdbcType=VARCHAR},
+      </if>
+      <if test="dictValue != null">
+        #{dictValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicgtIsEditable != null">
+        #{dicgtIsEditable,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.BasDict">
+    update tbl_bas_dict
+    <set>
+      <if test="dictType != null">
+        dict_type = #{dictType,jdbcType=VARCHAR},
+      </if>
+      <if test="dictItem != null">
+        dict_item = #{dictItem,jdbcType=VARCHAR},
+      </if>
+      <if test="dictValue != null">
+        dict_value = #{dictValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicgtIsEditable != null">
+        dicgt_is_editable = #{dicgtIsEditable,jdbcType=BIT},
+      </if>
+    </set>
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.BasDict">
+    update tbl_bas_dict
+    set dict_type = #{dictType,jdbcType=VARCHAR},
+      dict_item = #{dictItem,jdbcType=VARCHAR},
+      dict_value = #{dictValue,jdbcType=VARCHAR},
+      dicgt_is_editable = #{dicgtIsEditable,jdbcType=BIT}
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.BasDict">
+    <id column="dict_id" jdbcType="INTEGER" property="dictId" />
+    <result column="dict_type" jdbcType="VARCHAR" property="dictType" />
+    <result column="dict_item" jdbcType="VARCHAR" property="dictItem" />
+    <result column="dict_value" jdbcType="VARCHAR" property="dictValue" />
+    <result column="dicgt_is_editable" jdbcType="BIT" property="dicgtIsEditable" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dict_id, dict_type, dict_item, dict_value, dicgt_is_editable
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_bas_dict
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_bas_dict
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.BasDict">
+    insert into tbl_bas_dict (dict_id, dict_type, dict_item, 
+      dict_value, dicgt_is_editable)
+    values (#{dictId,jdbcType=INTEGER}, #{dictType,jdbcType=VARCHAR}, #{dictItem,jdbcType=VARCHAR}, 
+      #{dictValue,jdbcType=VARCHAR}, #{dicgtIsEditable,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.BasDict">
+    insert into tbl_bas_dict
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dictId != null">
+        dict_id,
+      </if>
+      <if test="dictType != null">
+        dict_type,
+      </if>
+      <if test="dictItem != null">
+        dict_item,
+      </if>
+      <if test="dictValue != null">
+        dict_value,
+      </if>
+      <if test="dicgtIsEditable != null">
+        dicgt_is_editable,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dictId != null">
+        #{dictId,jdbcType=INTEGER},
+      </if>
+      <if test="dictType != null">
+        #{dictType,jdbcType=VARCHAR},
+      </if>
+      <if test="dictItem != null">
+        #{dictItem,jdbcType=VARCHAR},
+      </if>
+      <if test="dictValue != null">
+        #{dictValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicgtIsEditable != null">
+        #{dicgtIsEditable,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.BasDict">
+    update tbl_bas_dict
+    <set>
+      <if test="dictType != null">
+        dict_type = #{dictType,jdbcType=VARCHAR},
+      </if>
+      <if test="dictItem != null">
+        dict_item = #{dictItem,jdbcType=VARCHAR},
+      </if>
+      <if test="dictValue != null">
+        dict_value = #{dictValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicgtIsEditable != null">
+        dicgt_is_editable = #{dicgtIsEditable,jdbcType=BIT},
+      </if>
+    </set>
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.BasDict">
+    update tbl_bas_dict
+    set dict_type = #{dictType,jdbcType=VARCHAR},
+      dict_item = #{dictItem,jdbcType=VARCHAR},
+      dict_value = #{dictValue,jdbcType=VARCHAR},
+      dicgt_is_editable = #{dicgtIsEditable,jdbcType=BIT}
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.BasDict">
+    <id column="dict_id" jdbcType="INTEGER" property="dictId" />
+    <result column="dict_type" jdbcType="VARCHAR" property="dictType" />
+    <result column="dict_item" jdbcType="VARCHAR" property="dictItem" />
+    <result column="dict_value" jdbcType="VARCHAR" property="dictValue" />
+    <result column="dicgt_is_editable" jdbcType="BIT" property="dicgtIsEditable" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    dict_id, dict_type, dict_item, dict_value, dicgt_is_editable
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_bas_dict
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_bas_dict
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.BasDict">
+    insert into tbl_bas_dict (dict_id, dict_type, dict_item, 
+      dict_value, dicgt_is_editable)
+    values (#{dictId,jdbcType=INTEGER}, #{dictType,jdbcType=VARCHAR}, #{dictItem,jdbcType=VARCHAR}, 
+      #{dictValue,jdbcType=VARCHAR}, #{dicgtIsEditable,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.BasDict">
+    insert into tbl_bas_dict
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dictId != null">
+        dict_id,
+      </if>
+      <if test="dictType != null">
+        dict_type,
+      </if>
+      <if test="dictItem != null">
+        dict_item,
+      </if>
+      <if test="dictValue != null">
+        dict_value,
+      </if>
+      <if test="dicgtIsEditable != null">
+        dicgt_is_editable,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dictId != null">
+        #{dictId,jdbcType=INTEGER},
+      </if>
+      <if test="dictType != null">
+        #{dictType,jdbcType=VARCHAR},
+      </if>
+      <if test="dictItem != null">
+        #{dictItem,jdbcType=VARCHAR},
+      </if>
+      <if test="dictValue != null">
+        #{dictValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicgtIsEditable != null">
+        #{dicgtIsEditable,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.BasDict">
+    update tbl_bas_dict
+    <set>
+      <if test="dictType != null">
+        dict_type = #{dictType,jdbcType=VARCHAR},
+      </if>
+      <if test="dictItem != null">
+        dict_item = #{dictItem,jdbcType=VARCHAR},
+      </if>
+      <if test="dictValue != null">
+        dict_value = #{dictValue,jdbcType=VARCHAR},
+      </if>
+      <if test="dicgtIsEditable != null">
+        dicgt_is_editable = #{dicgtIsEditable,jdbcType=BIT},
+      </if>
+    </set>
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.BasDict">
+    update tbl_bas_dict
+    set dict_type = #{dictType,jdbcType=VARCHAR},
+      dict_item = #{dictItem,jdbcType=VARCHAR},
+      dict_value = #{dictValue,jdbcType=VARCHAR},
+      dicgt_is_editable = #{dicgtIsEditable,jdbcType=BIT}
+    where dict_id = #{dictId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery/jquery-2.1.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/axios-0.18.0.js" type="text/javascript"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <form action="" method="get" id="myform">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.do">
+                    新闻信息管理
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <div class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="news_Title" name="news_Title" placeholder="新闻标题"
+                               value="">
+                    </div>
+                    <input type="submit" id="btn_Sear" class="btn btn-default form-control" value="搜索"/>
+                </div>
+                <p class="navbar-text navbar-right">当前用户：<span class="login_user_name"></span></a></p>
+            </div>
+        </div>
+    </form>
+</nav>
+
+<div class="container" style="min-width: 970px; max-width: none !important;">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="nav nav-pills  nav-justified">
+                <li role="presentation" class="active"><a href="index.php">最新新闻</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row newinfo">
+        <div class="media">
+            <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row newsusercontents">
+
+    </div>
+
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: #f8f8f84d">
+    <div style="margin: 0px auto; width: 500px; height: 50px; line-height: 50px; text-align: center;
+		color: #686868">
+        Copyright © 2021 任傲飞 Powered by PHP 7.4.18
+    </div>
+</nav>
+<script>getNewstype();
+reqpagebyindex(1, "");
+$(function () {
+    $("#myform").submit(function (e){
+        reqpagebyindex(1,"");
+        return false;
+    })
+});
+
+function getNewstype() {
+    // axios.get("/user/logininfo").then((res)=>{
+    //   $(".login_user_name").html(res.data.msg);
+    // })
+    axios.get("/userallnewstype").then((res) => {
+        $(".nav-justified").empty();
+        let shoufenqin = $(".nav-justified")
+        for (var i = 0; i < res.data.data.length; i++) {
+            //let option = "<option value=" + res.data.data[i].typeId + ">" +  res.data.data[i].typeName + "</option>";
+            let option = "<li role='presentation' ><a href='javascript:;' onclick='getnewByType("+res.data.data[i].typeId+")'>" + res.data.data[i].typeName + " </a></li>";
+            shoufenqin.append(option);
+        }
+    })
+}
+function getnewByType(newstypeid){
+  console.log(newstypeid);
+  reqpagebyindex(1,newstypeid);
+}
+function reqpagebyindex(currentIndex, newsTypestr) {
+    axios.get("/userallnews/" + currentIndex + "/5?newsTitle=" + $("#myform").serializeArray()[0].value + "&newsType=" + newsTypestr).then((res) => {
+        const news_list = res.data.data.records;
+        let news_table = $(".newinfo");
+        news_table.empty();
+        $.each(news_list, function (index) {
+            let str = " <div class=\"media\"><div className=\"media-body\">";
+            str += " <h5 className=\"media-heading\"><a href='javascript:;' onclick='checkNews("+news_list[index].newsId+")'>" + news_list[index].newsTitle + "</a></h5>";
+            str += "<p>"+news_list[index].newsContent+"</p></div></div>";
+            // let tr = "<tr  height=\"40\">";
+            // // tr += "<td><input type=\"checkbox\" class=\"checkstuid\" name=\"news_id[]\" value=\""+news_list[index].newsId+"\"></td>"
+            // tr += "<td>"+news_list[index].newsTitle+"</td>";
+            // tr += "<td>"+news_list[index].newsDate+"</td>";
+            // // tr += "<td class='text-center'><a class='btn btn-default' onclick='ModifyInfo("+news_list[index].newsId+")'>修改</a>  <a class='btn btn-danger' onclick='DeleteInfo("+news_list[index].newsId+")'>删除</a></td>\""
+            // tr += "<td><div align='center'><a href='javascript:;' onclick='checkNews("+news_list[index].newsId+")'>查看</a></div>";
+            // tr += "</td></tr>";
+            news_table.append(str);
+        })
+        currentPageIndex = res.data.data.current;
+    })
+}
+
+function checkNews(news_id) {
+    axios.get("/userallnews/" + news_id).then((res) => {
+        if (res.data.data != null) {
+            // $("#newsId").val(res.data.data.newsId);
+            // $("#oldnewsId").val(res.data.data.newsId);
+            // $("#newsTitle").val(res.data.data.newsTitle);
+            // $("#newsDate").val(res.data.data.newsDate);
+            // $("#newsType").val(res.data.data.newsType);
+            // $("#newsAuthor").val(res.data.data.newsAuthor);
+            // $("#newsContent").val(res.data.data.newsContent);
+            // $('#myModal').modal('show');
+            console.log(res.data.data );
+            let newstable=$(".newinfo").empty();
+            let newsinfodiv="<div className=\"col-md-8 col-md-offset-1\" style=\"border-right: 1px solid #f2f2f2;\">";
+            newsinfodiv+=" <h1 className=\"text-center\">";
+            newsinfodiv+=res.data.data.newsTitle;
+            newsinfodiv+=" </h1> <p>";
+            newsinfodiv+=res.data.data.newsContent;
+            newsinfodiv+= " </p></div>";
+            newstable.append(newsinfodiv);
+
+        } else {
+
+        }
+    })
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+# Project exclude paths
+/spring_boot_03_mybatis/target/
+/springboot_09_sql/target/

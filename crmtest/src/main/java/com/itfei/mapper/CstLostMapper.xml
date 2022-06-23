@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.CstLostMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.CstLost">
+    <id column="lst_id" jdbcType="INTEGER" property="lstId" />
+    <result column="lst_cust_no" jdbcType="INTEGER" property="lstCustNo" />
+    <result column="lst_cust_name" jdbcType="VARCHAR" property="lstCustName" />
+    <result column="lst_cust_manage_id" jdbcType="INTEGER" property="lstCustManageId" />
+    <result column="lst_cust_manage_name" jdbcType="VARCHAR" property="lstCustManageName" />
+    <result column="lst_last_order_date" jdbcType="TIMESTAMP" property="lstLastOrderDate" />
+    <result column="lst_lost_date" jdbcType="TIMESTAMP" property="lstLostDate" />
+    <result column="lst_delay" jdbcType="VARCHAR" property="lstDelay" />
+    <result column="lst_reason" jdbcType="VARCHAR" property="lstReason" />
+    <result column="lst_status" jdbcType="VARCHAR" property="lstStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    lst_id, lst_cust_no, lst_cust_name, lst_cust_manage_id, lst_cust_manage_name, lst_last_order_date, 
+    lst_lost_date, lst_delay, lst_reason, lst_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_cst_lost
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_cst_lost
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.CstLost">
+    insert into tbl_cst_lost (lst_id, lst_cust_no, lst_cust_name, 
+      lst_cust_manage_id, lst_cust_manage_name, lst_last_order_date, 
+      lst_lost_date, lst_delay, lst_reason, 
+      lst_status)
+    values (#{lstId,jdbcType=INTEGER}, #{lstCustNo,jdbcType=INTEGER}, #{lstCustName,jdbcType=VARCHAR}, 
+      #{lstCustManageId,jdbcType=INTEGER}, #{lstCustManageName,jdbcType=VARCHAR}, #{lstLastOrderDate,jdbcType=TIMESTAMP}, 
+      #{lstLostDate,jdbcType=TIMESTAMP}, #{lstDelay,jdbcType=VARCHAR}, #{lstReason,jdbcType=VARCHAR}, 
+      #{lstStatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.CstLost">
+    insert into tbl_cst_lost
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lstId != null">
+        lst_id,
+      </if>
+      <if test="lstCustNo != null">
+        lst_cust_no,
+      </if>
+      <if test="lstCustName != null">
+        lst_cust_name,
+      </if>
+      <if test="lstCustManageId != null">
+        lst_cust_manage_id,
+      </if>
+      <if test="lstCustManageName != null">
+        lst_cust_manage_name,
+      </if>
+      <if test="lstLastOrderDate != null">
+        lst_last_order_date,
+      </if>
+      <if test="lstLostDate != null">
+        lst_lost_date,
+      </if>
+      <if test="lstDelay != null">
+        lst_delay,
+      </if>
+      <if test="lstReason != null">
+        lst_reason,
+      </if>
+      <if test="lstStatus != null">
+        lst_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lstId != null">
+        #{lstId,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustNo != null">
+        #{lstCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustName != null">
+        #{lstCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstCustManageId != null">
+        #{lstCustManageId,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustManageName != null">
+        #{lstCustManageName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstLastOrderDate != null">
+        #{lstLastOrderDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstLostDate != null">
+        #{lstLostDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstDelay != null">
+        #{lstDelay,jdbcType=VARCHAR},
+      </if>
+      <if test="lstReason != null">
+        #{lstReason,jdbcType=VARCHAR},
+      </if>
+      <if test="lstStatus != null">
+        #{lstStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.CstLost">
+    update tbl_cst_lost
+    <set>
+      <if test="lstCustNo != null">
+        lst_cust_no = #{lstCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustName != null">
+        lst_cust_name = #{lstCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstCustManageId != null">
+        lst_cust_manage_id = #{lstCustManageId,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustManageName != null">
+        lst_cust_manage_name = #{lstCustManageName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstLastOrderDate != null">
+        lst_last_order_date = #{lstLastOrderDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstLostDate != null">
+        lst_lost_date = #{lstLostDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstDelay != null">
+        lst_delay = #{lstDelay,jdbcType=VARCHAR},
+      </if>
+      <if test="lstReason != null">
+        lst_reason = #{lstReason,jdbcType=VARCHAR},
+      </if>
+      <if test="lstStatus != null">
+        lst_status = #{lstStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.CstLost">
+    update tbl_cst_lost
+    set lst_cust_no = #{lstCustNo,jdbcType=INTEGER},
+      lst_cust_name = #{lstCustName,jdbcType=VARCHAR},
+      lst_cust_manage_id = #{lstCustManageId,jdbcType=INTEGER},
+      lst_cust_manage_name = #{lstCustManageName,jdbcType=VARCHAR},
+      lst_last_order_date = #{lstLastOrderDate,jdbcType=TIMESTAMP},
+      lst_lost_date = #{lstLostDate,jdbcType=TIMESTAMP},
+      lst_delay = #{lstDelay,jdbcType=VARCHAR},
+      lst_reason = #{lstReason,jdbcType=VARCHAR},
+      lst_status = #{lstStatus,jdbcType=VARCHAR}
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.CstLost">
+    <id column="lst_id" jdbcType="INTEGER" property="lstId" />
+    <result column="lst_cust_no" jdbcType="INTEGER" property="lstCustNo" />
+    <result column="lst_cust_name" jdbcType="VARCHAR" property="lstCustName" />
+    <result column="lst_cust_manage_id" jdbcType="INTEGER" property="lstCustManageId" />
+    <result column="lst_cust_manage_name" jdbcType="VARCHAR" property="lstCustManageName" />
+    <result column="lst_last_order_date" jdbcType="TIMESTAMP" property="lstLastOrderDate" />
+    <result column="lst_lost_date" jdbcType="TIMESTAMP" property="lstLostDate" />
+    <result column="lst_delay" jdbcType="VARCHAR" property="lstDelay" />
+    <result column="lst_reason" jdbcType="VARCHAR" property="lstReason" />
+    <result column="lst_status" jdbcType="VARCHAR" property="lstStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    lst_id, lst_cust_no, lst_cust_name, lst_cust_manage_id, lst_cust_manage_name, lst_last_order_date, 
+    lst_lost_date, lst_delay, lst_reason, lst_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_cst_lost
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_cst_lost
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.CstLost">
+    insert into tbl_cst_lost (lst_id, lst_cust_no, lst_cust_name, 
+      lst_cust_manage_id, lst_cust_manage_name, lst_last_order_date, 
+      lst_lost_date, lst_delay, lst_reason, 
+      lst_status)
+    values (#{lstId,jdbcType=INTEGER}, #{lstCustNo,jdbcType=INTEGER}, #{lstCustName,jdbcType=VARCHAR}, 
+      #{lstCustManageId,jdbcType=INTEGER}, #{lstCustManageName,jdbcType=VARCHAR}, #{lstLastOrderDate,jdbcType=TIMESTAMP}, 
+      #{lstLostDate,jdbcType=TIMESTAMP}, #{lstDelay,jdbcType=VARCHAR}, #{lstReason,jdbcType=VARCHAR}, 
+      #{lstStatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.CstLost">
+    insert into tbl_cst_lost
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lstId != null">
+        lst_id,
+      </if>
+      <if test="lstCustNo != null">
+        lst_cust_no,
+      </if>
+      <if test="lstCustName != null">
+        lst_cust_name,
+      </if>
+      <if test="lstCustManageId != null">
+        lst_cust_manage_id,
+      </if>
+      <if test="lstCustManageName != null">
+        lst_cust_manage_name,
+      </if>
+      <if test="lstLastOrderDate != null">
+        lst_last_order_date,
+      </if>
+      <if test="lstLostDate != null">
+        lst_lost_date,
+      </if>
+      <if test="lstDelay != null">
+        lst_delay,
+      </if>
+      <if test="lstReason != null">
+        lst_reason,
+      </if>
+      <if test="lstStatus != null">
+        lst_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lstId != null">
+        #{lstId,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustNo != null">
+        #{lstCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustName != null">
+        #{lstCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstCustManageId != null">
+        #{lstCustManageId,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustManageName != null">
+        #{lstCustManageName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstLastOrderDate != null">
+        #{lstLastOrderDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstLostDate != null">
+        #{lstLostDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstDelay != null">
+        #{lstDelay,jdbcType=VARCHAR},
+      </if>
+      <if test="lstReason != null">
+        #{lstReason,jdbcType=VARCHAR},
+      </if>
+      <if test="lstStatus != null">
+        #{lstStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.CstLost">
+    update tbl_cst_lost
+    <set>
+      <if test="lstCustNo != null">
+        lst_cust_no = #{lstCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustName != null">
+        lst_cust_name = #{lstCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstCustManageId != null">
+        lst_cust_manage_id = #{lstCustManageId,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustManageName != null">
+        lst_cust_manage_name = #{lstCustManageName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstLastOrderDate != null">
+        lst_last_order_date = #{lstLastOrderDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstLostDate != null">
+        lst_lost_date = #{lstLostDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstDelay != null">
+        lst_delay = #{lstDelay,jdbcType=VARCHAR},
+      </if>
+      <if test="lstReason != null">
+        lst_reason = #{lstReason,jdbcType=VARCHAR},
+      </if>
+      <if test="lstStatus != null">
+        lst_status = #{lstStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.CstLost">
+    update tbl_cst_lost
+    set lst_cust_no = #{lstCustNo,jdbcType=INTEGER},
+      lst_cust_name = #{lstCustName,jdbcType=VARCHAR},
+      lst_cust_manage_id = #{lstCustManageId,jdbcType=INTEGER},
+      lst_cust_manage_name = #{lstCustManageName,jdbcType=VARCHAR},
+      lst_last_order_date = #{lstLastOrderDate,jdbcType=TIMESTAMP},
+      lst_lost_date = #{lstLostDate,jdbcType=TIMESTAMP},
+      lst_delay = #{lstDelay,jdbcType=VARCHAR},
+      lst_reason = #{lstReason,jdbcType=VARCHAR},
+      lst_status = #{lstStatus,jdbcType=VARCHAR}
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.CstLost">
+    <id column="lst_id" jdbcType="INTEGER" property="lstId" />
+    <result column="lst_cust_no" jdbcType="INTEGER" property="lstCustNo" />
+    <result column="lst_cust_name" jdbcType="VARCHAR" property="lstCustName" />
+    <result column="lst_cust_manage_id" jdbcType="INTEGER" property="lstCustManageId" />
+    <result column="lst_cust_manage_name" jdbcType="VARCHAR" property="lstCustManageName" />
+    <result column="lst_last_order_date" jdbcType="TIMESTAMP" property="lstLastOrderDate" />
+    <result column="lst_lost_date" jdbcType="TIMESTAMP" property="lstLostDate" />
+    <result column="lst_delay" jdbcType="VARCHAR" property="lstDelay" />
+    <result column="lst_reason" jdbcType="VARCHAR" property="lstReason" />
+    <result column="lst_status" jdbcType="VARCHAR" property="lstStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    lst_id, lst_cust_no, lst_cust_name, lst_cust_manage_id, lst_cust_manage_name, lst_last_order_date, 
+    lst_lost_date, lst_delay, lst_reason, lst_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_cst_lost
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_cst_lost
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.CstLost">
+    insert into tbl_cst_lost (lst_id, lst_cust_no, lst_cust_name, 
+      lst_cust_manage_id, lst_cust_manage_name, lst_last_order_date, 
+      lst_lost_date, lst_delay, lst_reason, 
+      lst_status)
+    values (#{lstId,jdbcType=INTEGER}, #{lstCustNo,jdbcType=INTEGER}, #{lstCustName,jdbcType=VARCHAR}, 
+      #{lstCustManageId,jdbcType=INTEGER}, #{lstCustManageName,jdbcType=VARCHAR}, #{lstLastOrderDate,jdbcType=TIMESTAMP}, 
+      #{lstLostDate,jdbcType=TIMESTAMP}, #{lstDelay,jdbcType=VARCHAR}, #{lstReason,jdbcType=VARCHAR}, 
+      #{lstStatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.CstLost">
+    insert into tbl_cst_lost
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lstId != null">
+        lst_id,
+      </if>
+      <if test="lstCustNo != null">
+        lst_cust_no,
+      </if>
+      <if test="lstCustName != null">
+        lst_cust_name,
+      </if>
+      <if test="lstCustManageId != null">
+        lst_cust_manage_id,
+      </if>
+      <if test="lstCustManageName != null">
+        lst_cust_manage_name,
+      </if>
+      <if test="lstLastOrderDate != null">
+        lst_last_order_date,
+      </if>
+      <if test="lstLostDate != null">
+        lst_lost_date,
+      </if>
+      <if test="lstDelay != null">
+        lst_delay,
+      </if>
+      <if test="lstReason != null">
+        lst_reason,
+      </if>
+      <if test="lstStatus != null">
+        lst_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lstId != null">
+        #{lstId,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustNo != null">
+        #{lstCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustName != null">
+        #{lstCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstCustManageId != null">
+        #{lstCustManageId,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustManageName != null">
+        #{lstCustManageName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstLastOrderDate != null">
+        #{lstLastOrderDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstLostDate != null">
+        #{lstLostDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstDelay != null">
+        #{lstDelay,jdbcType=VARCHAR},
+      </if>
+      <if test="lstReason != null">
+        #{lstReason,jdbcType=VARCHAR},
+      </if>
+      <if test="lstStatus != null">
+        #{lstStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.CstLost">
+    update tbl_cst_lost
+    <set>
+      <if test="lstCustNo != null">
+        lst_cust_no = #{lstCustNo,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustName != null">
+        lst_cust_name = #{lstCustName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstCustManageId != null">
+        lst_cust_manage_id = #{lstCustManageId,jdbcType=INTEGER},
+      </if>
+      <if test="lstCustManageName != null">
+        lst_cust_manage_name = #{lstCustManageName,jdbcType=VARCHAR},
+      </if>
+      <if test="lstLastOrderDate != null">
+        lst_last_order_date = #{lstLastOrderDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstLostDate != null">
+        lst_lost_date = #{lstLostDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstDelay != null">
+        lst_delay = #{lstDelay,jdbcType=VARCHAR},
+      </if>
+      <if test="lstReason != null">
+        lst_reason = #{lstReason,jdbcType=VARCHAR},
+      </if>
+      <if test="lstStatus != null">
+        lst_status = #{lstStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.CstLost">
+    update tbl_cst_lost
+    set lst_cust_no = #{lstCustNo,jdbcType=INTEGER},
+      lst_cust_name = #{lstCustName,jdbcType=VARCHAR},
+      lst_cust_manage_id = #{lstCustManageId,jdbcType=INTEGER},
+      lst_cust_manage_name = #{lstCustManageName,jdbcType=VARCHAR},
+      lst_last_order_date = #{lstLastOrderDate,jdbcType=TIMESTAMP},
+      lst_lost_date = #{lstLostDate,jdbcType=TIMESTAMP},
+      lst_delay = #{lstDelay,jdbcType=VARCHAR},
+      lst_reason = #{lstReason,jdbcType=VARCHAR},
+      lst_status = #{lstStatus,jdbcType=VARCHAR}
+    where lst_id = #{lstId,jdbcType=INTEGER}
+  </update>
+</mapper>

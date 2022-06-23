@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itfei.mapper.SysRoleRightMapper">
+  <resultMap id="BaseResultMap" type="com.itfei.model.SysRoleRight">
+    <id column="rf_id" jdbcType="INTEGER" property="rfId" />
+    <result column="rf_role_id" jdbcType="INTEGER" property="rfRoleId" />
+    <result column="rf_right_code" jdbcType="VARCHAR" property="rfRightCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    rf_id, rf_role_id, rf_right_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sys_role_right
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_sys_role_right
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SysRoleRight">
+    insert into tbl_sys_role_right (rf_id, rf_role_id, rf_right_code
+      )
+    values (#{rfId,jdbcType=INTEGER}, #{rfRoleId,jdbcType=INTEGER}, #{rfRightCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SysRoleRight">
+    insert into tbl_sys_role_right
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rfId != null">
+        rf_id,
+      </if>
+      <if test="rfRoleId != null">
+        rf_role_id,
+      </if>
+      <if test="rfRightCode != null">
+        rf_right_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rfId != null">
+        #{rfId,jdbcType=INTEGER},
+      </if>
+      <if test="rfRoleId != null">
+        #{rfRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="rfRightCode != null">
+        #{rfRightCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SysRoleRight">
+    update tbl_sys_role_right
+    <set>
+      <if test="rfRoleId != null">
+        rf_role_id = #{rfRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="rfRightCode != null">
+        rf_right_code = #{rfRightCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SysRoleRight">
+    update tbl_sys_role_right
+    set rf_role_id = #{rfRoleId,jdbcType=INTEGER},
+      rf_right_code = #{rfRightCode,jdbcType=VARCHAR}
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.SysRoleRight">
+    <id column="rf_id" jdbcType="INTEGER" property="rfId" />
+    <result column="rf_role_id" jdbcType="INTEGER" property="rfRoleId" />
+    <result column="rf_right_code" jdbcType="VARCHAR" property="rfRightCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    rf_id, rf_role_id, rf_right_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sys_role_right
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_sys_role_right
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SysRoleRight">
+    insert into tbl_sys_role_right (rf_id, rf_role_id, rf_right_code
+      )
+    values (#{rfId,jdbcType=INTEGER}, #{rfRoleId,jdbcType=INTEGER}, #{rfRightCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SysRoleRight">
+    insert into tbl_sys_role_right
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rfId != null">
+        rf_id,
+      </if>
+      <if test="rfRoleId != null">
+        rf_role_id,
+      </if>
+      <if test="rfRightCode != null">
+        rf_right_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rfId != null">
+        #{rfId,jdbcType=INTEGER},
+      </if>
+      <if test="rfRoleId != null">
+        #{rfRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="rfRightCode != null">
+        #{rfRightCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SysRoleRight">
+    update tbl_sys_role_right
+    <set>
+      <if test="rfRoleId != null">
+        rf_role_id = #{rfRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="rfRightCode != null">
+        rf_right_code = #{rfRightCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SysRoleRight">
+    update tbl_sys_role_right
+    set rf_role_id = #{rfRoleId,jdbcType=INTEGER},
+      rf_right_code = #{rfRightCode,jdbcType=VARCHAR}
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.itfei.model.SysRoleRight">
+    <id column="rf_id" jdbcType="INTEGER" property="rfId" />
+    <result column="rf_role_id" jdbcType="INTEGER" property="rfRoleId" />
+    <result column="rf_right_code" jdbcType="VARCHAR" property="rfRightCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    rf_id, rf_role_id, rf_right_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sys_role_right
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_sys_role_right
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itfei.model.SysRoleRight">
+    insert into tbl_sys_role_right (rf_id, rf_role_id, rf_right_code
+      )
+    values (#{rfId,jdbcType=INTEGER}, #{rfRoleId,jdbcType=INTEGER}, #{rfRightCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.itfei.model.SysRoleRight">
+    insert into tbl_sys_role_right
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rfId != null">
+        rf_id,
+      </if>
+      <if test="rfRoleId != null">
+        rf_role_id,
+      </if>
+      <if test="rfRightCode != null">
+        rf_right_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rfId != null">
+        #{rfId,jdbcType=INTEGER},
+      </if>
+      <if test="rfRoleId != null">
+        #{rfRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="rfRightCode != null">
+        #{rfRightCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itfei.model.SysRoleRight">
+    update tbl_sys_role_right
+    <set>
+      <if test="rfRoleId != null">
+        rf_role_id = #{rfRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="rfRightCode != null">
+        rf_right_code = #{rfRightCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itfei.model.SysRoleRight">
+    update tbl_sys_role_right
+    set rf_role_id = #{rfRoleId,jdbcType=INTEGER},
+      rf_right_code = #{rfRightCode,jdbcType=VARCHAR}
+    where rf_id = #{rfId,jdbcType=INTEGER}
+  </update>
+</mapper>
